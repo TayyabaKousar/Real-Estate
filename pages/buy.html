@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Premium Properties | DreamHome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Poppins', sans-serif !important; scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #0ea5e9; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-white antialiased">
+
+    <!-- 1. NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-8 py-6 lg:px-20 bg-[#0f172a] shadow-xl">
+        <a href="../index.html" class="text-3xl font-[900] text-white tracking-tighter uppercase">
+            Dream<span class="text-sky-400">Home</span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-10 text-white font-bold text-[14px]">
+            <a href="#" class="text-sky-400 border-b-2 border-sky-400 pb-1">Buy</a>
+            <a href="sell.html" class="hover:text-sky-400 transition">Sell</a>
+            <a href="rent.html" class="hover:text-sky-400 transition">Rent</a>
+            <a href="contactus.html" class="hover:text-sky-400 transition">Contact Us</a>
+            <a href="aboutus.html" class="hover:text-sky-400 transition">About Us</a>
+            <div class="flex items-center space-x-8 ml-4">
+                <a href="login.html" class="hover:text-sky-400 transition">Login</a>
+                <a href="signup.html" class="bg-sky-500 hover:bg-sky-600 text-white px-9 py-2.5 rounded-full transition shadow-lg border-0">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. EDITORIAL HERO SECTION -->
+    <section class="relative min-h-[70vh] flex items-center overflow-hidden bg-[#0f172a]">
+        <!-- Background Image Blend -->
+        <div class="absolute right-0 top-0 w-full lg:w-3/5 h-full z-0">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070" 
+                 class="w-full h-full object-cover grayscale opacity-40 hover:grayscale-0 transition duration-1000" alt="Luxury Estate">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/80 lg:via-[#0f172a]/20 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-8 lg:px-20 w-full">
+            <div class="max-w-2xl">
+                <span class="text-sky-400 font-bold uppercase tracking-[0.5em] text-[10px] mb-6 block">Elite Property Collection</span>
+                <h1 class="text-6xl md:text-8xl font-[900] text-white leading-[0.85] tracking-tighter mb-10 uppercase">
+                    Invest In Your <br> <span class="text-sky-500">Sanctuary.</span>
+                </h1>
+                <p class="text-gray-400 text-lg leading-relaxed mb-12 border-l-4 border-sky-500 pl-8 max-w-lg">
+                    Access the world's most exclusive real estate market. We curate only the finest architectural masterpieces for our clients.
+                </p>
+                
+                <!-- Hero Stats -->
+                <div class="flex gap-10 items-center">
+                    <div>
+                        <p class="text-3xl font-black text-white">10k+</p>
+                        <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest mt-1">Global Listings</p>
+                    </div>
+                    <div class="w-px h-10 bg-gray-800"></div>
+                    <div>
+                        <p class="text-3xl font-black text-white">98%</p>
+                        <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest mt-1">Growth ROI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ADVANCED SEARCH FILTER -->
+    <section class="relative z-20 -mt-16 px-6">
+        <div class="max-w-6xl mx-auto bg-white p-8 lg:p-10 rounded-[3rem] shadow-[0_30px_100px_-20px_rgba(0,0,0,0.15)] border border-gray-100">
+            <form class="grid grid-cols-1 md:grid-cols-4 gap-8 items-end">
+                <div class="space-y-2">
+                    <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Location</label>
+                    <select class="w-full bg-gray-50 border-none rounded-2xl py-4 px-5 text-xs font-bold outline-none focus:ring-2 focus:ring-sky-400 transition-all uppercase">
+                        <option>Select Region</option><option>Beverly Hills</option><option>London Central</option><option>Dubai Marina</option><option>Lahore DHA</option>
+                    </select>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Property Type</label>
+                    <select class="w-full bg-gray-50 border-none rounded-2xl py-4 px-5 text-xs font-bold outline-none focus:ring-2 focus:ring-sky-400 transition-all uppercase">
+                        <option>Modern Villa</option><option>Penthouse</option><option>Private Island</option><option>Luxury Mansion</option>
+                    </select>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest ml-1">Price Range</label>
+                    <select class="w-full bg-gray-50 border-none rounded-2xl py-4 px-5 text-xs font-bold outline-none focus:ring-2 focus:ring-sky-400 transition-all uppercase">
+                        <option>$1M - $5M</option><option>$5M - $15M</option><option>$15M - $50M</option><option>$50M+</option>
+                    </select>
+                </div>
+                <button class="bg-sky-500 hover:bg-sky-600 text-white font-black py-4 rounded-2xl shadow-xl shadow-sky-500/30 transition-all uppercase tracking-[0.2em] text-[11px] mb-1">Search Estates</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 4. BUY LISTINGS GRID -->
+    <section class="py-24 px-6 lg:px-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <span class="text-sky-500 font-bold uppercase tracking-widest text-[10px]">Active Listings</span>
+                    <h2 class="text-4xl font-[900] text-[#0f172a] uppercase mt-3">Featured <span class="text-sky-500">Opportunities.</span></h2>
+                </div>
+                <div class="flex gap-4">
+                    <button class="px-6 py-2 bg-gray-100 text-[#0f172a] text-[10px] font-black rounded-full uppercase tracking-widest">Newest</button>
+                    <button class="px-6 py-2 border border-gray-200 text-gray-400 text-[10px] font-black rounded-full uppercase tracking-widest hover:bg-sky-500 hover:text-white transition-all">Price High</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Property Card 1 -->
+                <div class="group cursor-pointer">
+                    <div class="relative h-80 rounded-[3rem] overflow-hidden mb-6 shadow-lg">
+                        <div class="absolute top-6 left-6 z-20 bg-sky-500 text-white text-[9px] font-black px-4 py-2 rounded-xl uppercase tracking-widest shadow-lg">Featured</div>
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
+                        <!-- Dark Overlay on Hover -->
+                        <div class="absolute inset-0 bg-[#0f172a]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="px-8 py-3 bg-white text-[#0f172a] font-black text-[10px] uppercase rounded-full shadow-2xl">View Detail</span>
+                        </div>
+                    </div>
+                    <div class="px-4">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-3xl font-black text-[#0f172a] leading-none">$12,500,000</h3>
+                            <button class="text-gray-300 hover:text-red-500 transition-colors"><i class="far fa-heart text-xl"></i></button>
+                        </div>
+                        <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-6">452 Sunset Blvd, Beverly Hills</p>
+                        <div class="flex items-center gap-6 pt-6 border-t border-gray-100">
+                            <div class="flex items-center gap-2 text-gray-500 text-[10px] font-bold uppercase">
+                                <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                6 Beds
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-500 text-[10px] font-bold uppercase">
+                                <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                                5 Baths
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 2 -->
+                <div class="group cursor-pointer">
+                    <div class="relative h-80 rounded-[3rem] overflow-hidden mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-[#0f172a]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="px-8 py-3 bg-white text-[#0f172a] font-black text-[10px] uppercase rounded-full shadow-2xl">View Detail</span>
+                        </div>
+                    </div>
+                    <div class="px-4">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-3xl font-black text-[#0f172a] leading-none">$8,900,000</h3>
+                            <button class="text-gray-300 hover:text-red-500 transition-colors"><i class="far fa-heart text-xl"></i></button>
+                        </div>
+                        <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-6">The Quartz Penthouse, Dubai</p>
+                        <div class="flex items-center gap-6 pt-6 border-t border-gray-100">
+                            <div class="flex items-center gap-2 text-gray-500 text-[10px] font-bold uppercase">
+                                <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                4 Beds
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-500 text-[10px] font-bold uppercase">
+                                <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                                4 Baths
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 3 -->
+                <div class="group cursor-pointer">
+                    <div class="relative h-80 rounded-[3rem] overflow-hidden mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-[#0f172a]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="px-8 py-3 bg-white text-[#0f172a] font-black text-[10px] uppercase rounded-full shadow-2xl">View Detail</span>
+                        </div>
+                    </div>
+                    <div class="px-4">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-3xl font-black text-[#0f172a] leading-none">$25,000,000</h3>
+                            <button class="text-gray-300 hover:text-red-500 transition-colors"><i class="far fa-heart text-xl"></i></button>
+                        </div>
+                        <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-6">Oceanfront Estate, Miami</p>
+                        <div class="flex items-center gap-6 pt-6 border-t border-gray-100">
+                            <div class="flex items-center gap-2 text-gray-500 text-[10px] font-bold uppercase">
+                                <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                8 Beds
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-500 text-[10px] font-bold uppercase">
+                                <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                                7 Baths
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Shared footer will be injected here -->
+<div id="site-footer"></div>
+<script>
+    (function(){
+        const container = document.getElementById('site-footer');
+        const path = window.location.pathname.includes('/pages/') ? 'footer.html' : 'pages/footer.html';
+        fetch(path).then(r=>r.text()).then(html=>{ container.innerHTML = html; }).catch(()=>{ container.innerHTML = '<p class="text-red-500 p-6">Footer failed to load.</p>'; });
+    })();
+</script>
+</body>
+</html>

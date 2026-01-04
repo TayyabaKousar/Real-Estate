@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Rentals | DreamHome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+    <style>
+        * { font-family: 'Poppins', sans-serif !important; scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #0ea5e9; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-white antialiased">
+
+    <!-- 1. NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between px-8 py-6 lg:px-16 bg-[#0f172a] shadow-xl">
+        <a href="../index.html" class="text-3xl font-[900] text-white tracking-tighter uppercase">
+            Dream<span class="text-sky-400">Home</span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-10 text-white font-bold text-[14px]">
+            <a href="buy.html" class="hover:text-sky-400 transition">Buy</a>
+            <a href="sell.html" class="hover:text-sky-400 transition">Sell</a>
+            <a href="#" class="text-sky-400 border-b-2 border-sky-400 pb-1">Rent</a>
+            <a href="contactus.html" class="hover:text-sky-400 transition">Contact Us</a>
+            <a href="aboutus.html" class="hover:text-sky-400 transition">About Us</a>
+            <div class="flex items-center space-x-8 ml-4">
+                <a href="login.html" class="hover:text-sky-400 transition">Login</a>
+                <a href="signup.html" class="bg-sky-500 hover:bg-sky-600 text-white px-9 py-2.5 rounded-full transition shadow-lg border-0">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. RENTAL HERO SECTION -->
+   <!-- 2. UPDATED HIGH-IMPACT RENTAL HERO -->
+<section class="relative min-h-[85vh] flex items-center overflow-hidden bg-[#0f172a] font-['Poppins']">
+    
+    <!-- Background Image Layer (Right Side Focus) -->
+    <div class="absolute right-0 top-0 w-full lg:w-2/3 h-full z-0">
+        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2070&auto=format&fit=crop" 
+             class="w-full h-full object-cover opacity-60 lg:opacity-80 transition duration-1000 hover:scale-105" 
+             alt="Luxury Interior">
+        <!-- Smooth Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/90 lg:via-[#0f172a]/30 to-transparent"></div>
+    </div>
+
+    <!-- Decorative Blurred Glows to fill space -->
+    <div class="absolute top-20 left-10 w-64 h-64 bg-sky-500/10 rounded-full blur-[100px] z-0"></div>
+    <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] z-0"></div>
+
+    <!-- Content Area -->
+    <div class="relative z-10 max-w-7xl mx-auto px-8 lg:px-20 w-full">
+        <div class="max-w-2xl">
+            <!-- Animated Badge -->
+            <div class="inline-flex items-center gap-3 px-4 py-2 bg-sky-500/10 border border-sky-500/20 rounded-full mb-8 animate-fade-in">
+                <span class="w-2 h-2 bg-sky-500 rounded-full animate-pulse"></span>
+                <span class="text-sky-400 font-bold text-[10px] uppercase tracking-[0.4em]">Luxury Lease Collection</span>
+            </div>
+
+            <!-- Main Heading with better Typography -->
+            <h1 class="text-6xl md:text-8xl font-[900] text-white leading-[0.85] tracking-tighter mb-10 uppercase">
+                FIND YOUR <br> 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-600">IDEAL SPACE.</span>
+            </h1>
+
+            <!-- Subtext with Border -->
+            <p class="text-gray-300 text-lg md:text-xl leading-relaxed opacity-90 border-l-4 border-sky-500 pl-8 mb-12 max-w-lg">
+                Discover the finest curated rental properties in the world's most prestigious neighborhoods. Excellence in every square foot.
+            </p>
+
+            <!-- Quick Stats to fill the "khali" space -->
+            <div class="flex gap-12 items-center pt-8 border-t border-white/10">
+                <div>
+                    <p class="text-3xl font-black text-white">2.5k+</p>
+                    <p class="text-[9px] text-sky-400 uppercase font-bold tracking-widest mt-1">Premium Homes</p>
+                </div>
+                <div class="w-px h-10 bg-gray-800"></div>
+                <div>
+                    <p class="text-3xl font-black text-white">15+</p>
+                    <p class="text-[9px] text-sky-400 uppercase font-bold tracking-widest mt-1">Global Cities</p>
+                </div>
+                <div class="w-px h-10 bg-gray-800"></div>
+                <div>
+                    <p class="text-3xl font-black text-white">24/7</p>
+                    <p class="text-[9px] text-sky-400 uppercase font-bold tracking-widest mt-1">Concierge</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section class="relative z-20 -mt-6 px-6">
+        <div class="max-w-6xl mx-auto bg-white p-8 rounded-[2.5rem] shadow-2xl border border-gray-100">
+            <form class="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-400 uppercase mb-2 tracking-widest">Location</label>
+                    <select class="w-full bg-gray-50 border border-gray-100 rounded-2xl px-4 py-4 text-xs font-bold outline-none focus:ring-2 focus:ring-sky-400 transition-all uppercase">
+                        <option>Select City</option><option>Lahore</option><option>Karachi</option><option>Islamabad</option><option>Dubai</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-400 uppercase mb-2 tracking-widest">Property Type</label>
+                    <select class="w-full bg-gray-50 border border-gray-100 rounded-2xl px-4 py-4 text-xs font-bold outline-none focus:ring-2 focus:ring-sky-400 transition-all uppercase">
+                        <option>Penthouse</option><option>Villa</option><option>Apartment</option><option>Studio</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-400 uppercase mb-2 tracking-widest">Monthly Budget</label>
+                    <select class="w-full bg-gray-50 border border-gray-100 rounded-2xl px-4 py-4 text-xs font-bold outline-none focus:ring-2 focus:ring-sky-400 transition-all uppercase">
+                        <option>$1,000 - $3,000</option><option>$3,000 - $7,000</option><option>$7,000 - $15,000</option><option>$15,000+</option>
+                    </select>
+                </div>
+                <button class="bg-sky-500 hover:bg-sky-600 text-white font-[900] py-4 rounded-2xl shadow-xl transition-all uppercase tracking-[0.2em] text-[11px]">Search Homes</button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- 4. RENTAL LISTINGS SECTION -->
+    <section class="py-24 px-6 lg:px-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-4xl font-[900] text-[#0f172a] uppercase tracking-tighter">Featured <span class="text-sky-500">Rentals.</span></h2>
+                    <p class="text-gray-400 text-sm mt-2 font-medium tracking-wide">Available luxury properties for lease this week.</p>
+                </div>
+                <button class="text-sky-500 font-bold border-b-2 border-sky-500 pb-1 uppercase text-xs tracking-widest hover:text-sky-600 transition">View All</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Card 1 -->
+                <div class="group bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500">
+                    <div class="relative h-72">
+                        <div class="absolute top-5 left-5 z-20 bg-sky-500 text-white text-[9px] font-black px-3 py-1.5 rounded-lg uppercase tracking-widest">Available</div>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-2xl font-black text-[#0f172a]">$4,500<span class="text-sm font-medium text-gray-400">/mo</span></h3>
+                            <div class="flex gap-4 text-gray-400 text-xs font-bold"><span>3 BD</span><span>|</span><span>2 BA</span></div>
+                        </div>
+                        <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-6">Skyline Penthouse, Downtown</p>
+                        <button class="w-full py-4 bg-[#0f172a] text-white font-bold rounded-2xl text-[10px] uppercase tracking-widest hover:bg-sky-500 transition-colors">Book a View</button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500">
+                    <div class="relative h-72">
+                        <div class="absolute top-5 left-5 z-20 bg-sky-500 text-white text-[9px] font-black px-3 py-1.5 rounded-lg uppercase tracking-widest">Available</div>
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-2xl font-black text-[#0f172a]">$8,200<span class="text-sm font-medium text-gray-400">/mo</span></h3>
+                            <div class="flex gap-4 text-gray-400 text-xs font-bold"><span>5 BD</span><span>|</span><span>4 BA</span></div>
+                        </div>
+                        <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-6">Ocean Breeze Villa, Miami</p>
+                        <button class="w-full py-4 bg-[#0f172a] text-white font-bold rounded-2xl text-[10px] uppercase tracking-widest hover:bg-sky-500 transition-colors">Book a View</button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500">
+                    <div class="relative h-72">
+                        <div class="absolute top-5 left-5 z-20 bg-sky-500 text-white text-[9px] font-black px-3 py-1.5 rounded-lg uppercase tracking-widest">Limited</div>
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-2xl font-black text-[#0f172a]">$12,000<span class="text-sm font-medium text-gray-400">/mo</span></h3>
+                            <div class="flex gap-4 text-gray-400 text-xs font-bold"><span>6 BD</span><span>|</span><span>5 BA</span></div>
+                        </div>
+                        <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-6">The Legacy Estate, London</p>
+                        <button class="w-full py-4 bg-[#0f172a] text-white font-bold rounded-2xl text-[10px] uppercase tracking-widest hover:bg-sky-500 transition-colors">Book a View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. WHY RENT WITH US (SVG ICONS - NO FAIL) -->
+    <section class="py-24 px-6 lg:px-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-[900] text-[#0f172a] uppercase mb-20 tracking-tighter">Why Choose <span class="text-sky-500">Dream Rentals?</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <!-- Point 1 -->
+                <div>
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-sky-500 mx-auto mb-8 shadow-xl border border-gray-100 group">
+                        <svg class="w-10 h-10 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h4 class="font-black text-[#0f172a] uppercase text-lg mb-4">Vetted Homes</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed font-bold uppercase tracking-widest">Every home is personally verified for luxury standards.</p>
+                </div>
+                <!-- Point 2 -->
+                <div>
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-sky-500 mx-auto mb-8 shadow-xl border border-gray-100 group">
+                        <svg class="w-10 h-10 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h4 class="font-black text-[#0f172a] uppercase text-lg mb-4">Swift Move-In</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed font-bold uppercase tracking-widest">Paperwork completed within 24 hours for verified members.</p>
+                </div>
+                <!-- Point 3 -->
+                <div>
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-sky-500 mx-auto mb-8 shadow-xl border border-gray-100 group">
+                        <svg class="w-10 h-10 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                    <h4 class="font-black text-[#0f172a] uppercase text-lg mb-4">24/7 Support</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed font-bold uppercase tracking-widest">Dedicated concierge for all your maintenance and needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Shared footer will be injected here -->
+<div id="site-footer"></div>
+<script>
+    (function(){
+        const container = document.getElementById('site-footer');
+        const path = window.location.pathname.includes('/pages/') ? 'footer.html' : 'pages/footer.html';
+        fetch(path).then(r=>r.text()).then(html=>{ container.innerHTML = html; }).catch(()=>{ container.innerHTML = '<p class="text-red-500 p-6">Footer failed to load.</p>'; });
+    })();
+</script>
+
+</body>
+</html>

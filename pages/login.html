@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | DreamHome Premium</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome (Icons fix) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { font-family: 'Poppins', sans-serif !important; }
+        body { background-color: #020617; } /* Deep Dark Background */
+        
+        /* Subtle animation for the form */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-login { animation: fadeIn 0.8s ease-out forwards; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- 1. NAVIGATION BAR (Standard Dark Theme) -->
+    <nav class="relative z-50 flex items-center justify-between px-8 py-6 lg:px-20 bg-transparent">
+        <a href="../index.html" class="text-3xl font-[900] text-white tracking-tighter uppercase">
+            Dream<span class="text-sky-400">Home</span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-10 text-white/80 font-bold text-[13px] uppercase tracking-widest">
+            <a href="../index.html" class="hover:text-sky-400 transition">Buy</a>
+            <a href="sell.html" class="hover:text-sky-400 transition">Sell</a>
+            <a href="contactus.html" class="hover:text-sky-400 transition">Contact</a>
+            <a href="aboutus.html" class="hover:text-sky-400 transition">About</a>
+            <a href="signup.html" class="bg-sky-500 hover:bg-sky-600 text-white px-8 py-2.5 rounded-full transition shadow-lg border-0 shadow-sky-500/20">Signup</a>
+        </div>
+    </nav>
+
+    <!-- 2. LOGIN CONTENT (Split Screen) -->
+    <main class="flex-grow flex flex-col lg:flex-row">
+        
+        <!-- LEFT SIDE: High-Quality Backdrop Image -->
+        <div class="hidden lg:block lg:w-1/2 relative">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" 
+                 class="w-full h-full object-cover" alt="Luxury House Backdrop">
+            <!-- Dark Gradient Overlay for a cinematic look -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#020617]/20 to-[#020617]"></div>
+            
+            <!-- Branding Text on Image -->
+            <div class="absolute bottom-20 left-20">
+                <span class="text-sky-400 font-bold text-[10px] uppercase tracking-[0.5em] mb-4 block">Official Portal</span>
+                <h2 class="text-6xl font-black text-white leading-tight tracking-tighter">
+                    THE KEYS TO <br><span class="text-sky-400">LUXURY.</span>
+                </h2>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Transparent Form with Sky Blue Borders -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-20">
+            <div class="max-w-md w-full animate-login">
+                
+                <!-- Form Container: Solid color removed, Sky Blue Border added -->
+                <div class="border-2 border-sky-500/50 rounded-[2.5rem] p-10 md:p-14 backdrop-blur-sm bg-sky-500/5 shadow-2xl shadow-sky-500/10">
+                    
+                    <div class="mb-10 text-center lg:text-left">
+                        <h3 class="text-4xl font-[900] text-white tracking-tighter uppercase">Welcome Back</h3>
+                        <div class="w-16 h-1 bg-sky-500 mt-4 rounded-full"></div>
+                    </div>
+
+                    <form class="space-y-6">
+                        <!-- Email Input -->
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">Client ID / Email</label>
+                            <div class="relative flex items-center border border-sky-500/30 bg-transparent rounded-2xl transition-all focus-within:border-sky-400 focus-within:ring-4 focus-within:ring-sky-500/5">
+                                <i class="far fa-envelope absolute left-5 text-sky-500/50"></i>
+                                <input type="email" placeholder="name@domain.com" 
+                                       class="w-full bg-transparent py-5 pl-14 pr-6 text-white text-sm outline-none font-medium placeholder:text-gray-600">
+                            </div>
+                        </div>
+
+                        <!-- Password Input -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center px-1">
+                                <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest">Password</label>
+                                <a href="#" class="text-[9px] font-bold text-sky-500 uppercase hover:text-white transition-colors">Forgot?</a>
+                            </div>
+                            <div class="relative flex items-center border border-sky-500/30 bg-transparent rounded-2xl transition-all focus-within:border-sky-400 focus-within:ring-4 focus-within:ring-sky-500/5">
+                                <i class="fas fa-lock absolute left-5 text-sky-500/50"></i>
+                                <input type="password" placeholder="••••••••" 
+                                       class="w-full bg-transparent py-5 pl-14 pr-6 text-white text-sm outline-none font-medium placeholder:text-gray-600">
+                            </div>
+                        </div>
+
+                        <!-- Login Button (The requested sliding gradient button) -->
+                        <button type="submit" class="group relative w-full py-5 bg-slate-900 text-white font-[900] rounded-2xl overflow-hidden transition-all duration-500 shadow-xl border-0 uppercase tracking-[0.3em] text-[11px] mt-4">
+                            <span class="relative z-10 flex items-center justify-center gap-3">
+                                Authorize Access <i class="fas fa-arrow-right text-sky-400 text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                            </span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-sky-600 to-sky-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+                        </button>
+
+                        <!-- Social Divider -->
+                        <div class="relative py-6 flex items-center justify-center">
+                            <div class="w-full border-t border-gray-800"></div>
+                            <span class="absolute bg-[#020617] px-4 text-[9px] text-gray-600 font-bold uppercase tracking-widest">Or Continue With</span>
+                        </div>
+
+                        <!-- Social Login Buttons -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <button type="button" class="flex items-center justify-center gap-3 py-4 border border-sky-500/20 rounded-2xl hover:bg-white/5 hover:border-sky-500/50 transition-all text-gray-400 text-[10px] font-bold uppercase tracking-widest group">
+                                <i class="fab fa-google text-white group-hover:text-red-500 transition-colors"></i> Google
+                            </button>
+                            <button type="button" class="flex items-center justify-center gap-3 py-4 border border-sky-500/20 rounded-2xl hover:bg-white/5 hover:border-sky-500/50 transition-all text-gray-400 text-[10px] font-bold uppercase tracking-widest group">
+                                <i class="fab fa-apple text-white group-hover:scale-110 transition-transform"></i> Apple
+                            </button>
+                        </div>
+
+                        <p class="text-center text-gray-600 text-[11px] font-bold mt-8 uppercase tracking-widest">
+                            No Account? <a href="signup.html" class="text-sky-500 hover:text-white transition-all ml-1 border-b border-sky-500/30 pb-1">Create One</a>
+                        </p>
+                    </form>
+                </div>
+
+                <p class="text-center text-[9px] text-gray-700 mt-10 uppercase tracking-[0.4em] font-bold">
+                    © 2025 DREAMHOME INTERNATIONAL REAL ESTATE.
+                </p>
+            </div>
+        </div>
+    </main>
+<div id="site-footer"></div>
+    <script>
+        (function () {
+            const container = document.getElementById('site-footer');
+            const path = 'footer.html';
+            fetch(path).then(r => r.text()).then(html => { container.innerHTML = html; }).catch(() => { container.innerHTML = '<p class="text-red-500 p-6">Footer failed to load.</p>'; });
+        })();
+    </script>
+</body>
+</html>

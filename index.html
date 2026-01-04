@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamHome | Premium Real Estate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset to fill white spaces */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { 
+            overflow-x: hidden; 
+            width: 100%; 
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Custom scrollbar for dropdowns */
+        select::-webkit-scrollbar {
+            width: 6px;
+        }
+        select::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="antialiased bg-white">
+
+    <!-- 1. Hero Section Container -->
+    <div class="relative min-h-screen flex flex-col w-full">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+                 alt="Modern Luxury Home" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        <!-- Navbar -->
+        <nav class="relative z-20 flex items-center justify-between px-8 py-6 lg:px-16">
+            <a href="../index.html" class="text-3xl font-bold text-white tracking-tight">
+        Dream<span class="text-sky-400">Home</span>
+    </a>
+            
+            <div class="hidden lg:flex items-center space-x-8 text-white font-medium">
+                <a href="pages/buy.html" class="hover:text-sky-400 transition">Buy</a>
+                <a href="pages/sell.html" class="hover:text-sky-400 transition">Sell</a>
+                <a href="pages/rent.html" class="hover:text-sky-400 transition">Rent</a>
+                <a href="pages/contactus.html" class="hover:text-sky-400 transition">Contact Us</a>
+                <a href="pages/aboutus.html" class="hover:text-sky-400 transition">About Us</a>
+                <div class="flex items-center space-x-4 ml-4">
+                    <a href="pages/login.html" class="hover:text-sky-400 transition">Login</a>
+                    <a href="pages/signup.html" class="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2 rounded-full transition shadow-lg border-0">Signup</a>
+                </div>
+            </div>
+            <div class="lg:hidden text-white text-2xl"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <!-- Hero Content -->
+        <main class="relative z-10 flex-grow flex flex-col items-center justify-center px-4 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+                <span class="text-white">Discover Your</span><br>
+                <span class="text-sky-400">Future Living</span> <span class="text-white">Space</span>
+            </h1>
+            <p class="text-gray-200 text-lg md:text-xl mb-10 max-w-2xl">
+                More than 10,000 premium properties waiting for you. The simplest way to find your new home.
+            </p>
+        </main>
+
+        <!-- Bottom Stats -->
+        <div class="relative z-10 hidden md:flex justify-center gap-16 pb-10 text-white">
+            <div class="text-center">
+                <p class="text-2xl font-bold">12k+</p>
+                <p class="text-sm text-gray-300">Properties Ready</p>
+            </div>
+            <div class="text-center">
+                <p class="text-2xl font-bold">8k+</p>
+                <p class="text-sm text-gray-300">Happy Customers</p>
+            </div>
+            <div class="text-center">
+                <p class="text-2xl font-bold">500+</p>
+                <p class="text-sm text-gray-300">Awards Won</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Filter Bar & Listings Section -->
+    <section class="bg-slate-50 py-20 px-6 lg:px-16 w-full" id="property-listings">
+        <!-- Filter Bar -->
+      <div class="max-w-6xl mx-auto mb-20">
+    <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-800">Find Your <span class="text-sky-500">Perfect Match</span></h2>
+        <p class="text-gray-500 mt-2">Use the filters below to narrow down your search</p>
+    </div>
+    <form class="bg-white p-6 rounded-3xl shadow-xl border border-gray-100 grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+        <div class="text-left">
+            <label class="block text-[10px] font-bold text-gray-400 uppercase mb-2 tracking-widest">Country</label>
+            <select class="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-sky-400 transition-all">
+                <option>Select Country</option>
+                <option>Pakistan</option>
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>United Arab Emirates</option>
+                <option>Canada</option>
+                <option>Australia</option>
+                <option>Saudi Arabia</option>
+                <option>Turkey</option>
+                <option>Germany</option>
+                <option>France</option>
+                <option>Italy</option>
+                <option>Spain</option>
+                <option>Switzerland</option>
+                <option>Qatar</option>
+                <option>Singapore</option>
+                <option>Malaysia</option>
+                <option>Netherlands</option>
+                <option>Japan</option>
+                <option>China</option>
+            </select>
+        </div>
+        <div class="text-left">
+            <label class="block text-[10px] font-bold text-gray-400 uppercase mb-2 tracking-widest">City</label>
+            <select class="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-sky-400 transition-all">
+                <option>Select City</option>
+                <option>Lahore</option>
+                <option>Karachi</option>
+                <option>Islamabad</option>
+                <option>Faisalabad</option>
+                <option>Multan</option>
+                <option>Rawalpindi</option>
+                <option>Peshawar</option>
+                <option>Quetta</option>
+                <option>New York</option>
+                <option>London</option>
+                <option>Dubai</option>
+                <option>Paris</option>
+                <option>Istanbul</option>
+                <option>Toronto</option>
+                <option>Sydney</option>
+                <option>Riyadh</option>
+                <option>Berlin</option>
+                <option>Amsterdam</option>
+                <option>Singapore</option>
+                <option>Hong Kong</option>
+                <option>Tokyo</option>
+            </select>
+        </div>
+        <div class="text-left">
+            <label class="block text-[10px] font-bold text-gray-400 uppercase mb-2 tracking-widest">Category</label>
+            <select class="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-sky-400 transition-all">
+                <option>Buy</option>
+                <option>Rent</option>
+                <option>Sell</option>
+            </select>
+        </div>
+        <button type="submit" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg border-0">Search</button>
+        <button type="reset" class="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold py-3.5 rounded-xl transition-all">Reset</button>
+    </form> 
+</div>
+       
+
+        <!-- Section Header -->
+        <div class="max-w-7xl mx-auto mb-16 text-center lg:text-left">
+            <h2 class="text-4xl font-extrabold text-gray-900 tracking-tight">Latest <span class="text-sky-500">Property Listings</span></h2>
+            <p class="text-gray-500 mt-3 text-lg">Explore our handpicked premium properties.</p>
+        </div>
+
+        <!-- Main Grid Container -->
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
+            <!-- CARD 1 (Featured) -->
+            <div class="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 relative flex flex-col">
+                <div class="relative h-72 overflow-hidden bg-gray-200">
+                    <div class="absolute top-5 left-5 z-20 bg-sky-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-lg flex items-center gap-1"><i class="fas fa-crown text-[8px]"></i> Featured</div>
+                    <button class="absolute top-5 right-5 z-20 bg-white/90 p-2.5 rounded-full text-gray-400 hover:text-red-500 shadow-md"><i class="fas fa-heart"></i></button>
+                    <button class="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-black/20 p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-all"><i class="fas fa-chevron-left text-xs"></i></button>
+                    <button class="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-black/20 p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-all"><i class="fas fa-chevron-right text-xs"></i></button>
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20"><div class="w-2 h-2 rounded-full bg-white shadow-sm"></div><div class="w-2 h-2 rounded-full bg-white/40"></div><div class="w-2 h-2 rounded-full bg-white/40"></div></div>
+                </div>
+                <div class="p-8 flex-grow">
+                    <div class="flex justify-between items-center mb-4"><h3 class="text-3xl font-bold text-gray-900 leading-none">$22,900,000</h3><button class="text-gray-300 hover:text-sky-500 transition"><i class="fas fa-ellipsis-h text-xl"></i></button></div>
+                    <div class="flex items-center space-x-3 text-sm text-gray-500 mb-5 font-medium"><span><strong>11</strong> bds</span><span>|</span><span><strong>9</strong> ba</span><span>|</span><span><strong>9,580</strong> sqft</span><span class="text-green-500 font-bold text-[10px] ml-auto uppercase tracking-wider">Active</span></div>
+                    <p class="text-gray-500 text-sm mb-8 leading-relaxed">1044 Grosse Point Road, Ferrisburgh, VT 05456</p>
+                    <div class="pt-5 border-t border-gray-50 flex justify-between items-center"><span class="text-[10px] text-gray-400 font-bold">PrimeMLS Listing</span><i class="fas fa-arrow-right text-sky-400"></i></div>
+                </div>
+            </div>
+            <!-- ... Cards 2, 3, 4, 5 follow same structure ... -->
+            <!-- CARD 2 (Featured) -->
+            <div class="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 relative flex flex-col">
+                <div class="relative h-72 overflow-hidden bg-gray-200">
+                    <div class="absolute top-5 left-5 z-20 bg-sky-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-lg flex items-center gap-1"><i class="fas fa-crown text-[8px]"></i> Featured</div>
+                    <button class="absolute top-5 right-5 z-20 bg-white/90 p-2.5 rounded-full text-gray-400 hover:text-red-500 shadow-md"><i class="fas fa-heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20"><div class="w-2 h-2 rounded-full bg-white shadow-sm"></div><div class="w-2 h-2 rounded-full bg-white/40"></div><div class="w-2 h-2 rounded-full bg-white/40"></div></div>
+                </div>
+                <div class="p-8 flex-grow">
+                    <div class="flex justify-between items-center mb-4"><h3 class="text-3xl font-bold text-gray-900">$18,500,000</h3><button class="text-gray-300"><i class="fas fa-ellipsis-h text-xl"></i></button></div>
+                    <p class="text-gray-500 text-sm leading-relaxed">452 Sunset Blvd, Beverly Hills, CA 90210</p>
+                </div>
+            </div>
+             <!-- CARD 3 (Featured) -->
+             <div class="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 relative flex flex-col">
+                <div class="relative h-72 overflow-hidden bg-gray-200">
+                    <div class="absolute top-5 left-5 z-20 bg-sky-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-lg flex items-center gap-1"><i class="fas fa-crown text-[8px]"></i> Featured</div>
+                    <button class="absolute top-5 right-5 z-20 bg-white/90 p-2.5 rounded-full text-gray-400 hover:text-red-500 shadow-md"><i class="fas fa-heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20"><div class="w-2 h-2 rounded-full bg-white shadow-sm"></div><div class="w-2 h-2 rounded-full bg-white/40"></div><div class="w-2 h-2 rounded-full bg-white/40"></div></div>
+                </div>
+                <div class="p-8 flex-grow">
+                    <div class="flex justify-between items-center mb-4"><h3 class="text-3xl font-bold text-gray-900">$12,750,000</h3><button class="text-gray-300"><i class="fas fa-ellipsis-h text-xl"></i></button></div>
+                    <p class="text-gray-500 text-sm leading-relaxed">120 Ocean Drive, Miami Beach, FL 33139</p>
+                </div>
+            </div>
+             <!-- CARD 4 -->
+             <div class="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 relative flex flex-col">
+                <div class="relative h-72 overflow-hidden bg-gray-200">
+                    <button class="absolute top-5 right-5 z-20 bg-white/90 p-2.5 rounded-full text-gray-400 hover:text-red-500 shadow-md"><i class="fas fa-heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20"><div class="w-2 h-2 rounded-full bg-white shadow-sm"></div><div class="w-2 h-2 rounded-full bg-white/40"></div><div class="w-2 h-2 rounded-full bg-white/40"></div></div>
+                </div>
+                <div class="p-8 flex-grow">
+                    <div class="flex justify-between items-center mb-4"><h3 class="text-3xl font-bold text-gray-900">$850,000</h3><button class="text-gray-300"><i class="fas fa-ellipsis-h text-xl"></i></button></div>
+                    <p class="text-gray-500 text-sm leading-relaxed">789 Pine Street, Austin, TX 73301</p>
+                </div>
+            </div>
+             <!-- CARD 5 -->
+             <div class="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 relative flex flex-col">
+                <div class="relative h-72 overflow-hidden bg-gray-200">
+                    <button class="absolute top-5 right-5 z-20 bg-white/90 p-2.5 rounded-full text-gray-400 hover:text-red-500 shadow-md"><i class="fas fa-heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20"><div class="w-2 h-2 rounded-full bg-white shadow-sm"></div><div class="w-2 h-2 rounded-full bg-white/40"></div><div class="w-2 h-2 rounded-full bg-white/40"></div></div>
+                </div>
+                <div class="p-8 flex-grow">
+                    <div class="flex justify-between items-center mb-4"><h3 class="text-3xl font-bold text-gray-900">$1,100,000</h3><button class="text-gray-300"><i class="fas fa-ellipsis-h text-xl"></i></button></div>
+                    <p class="text-gray-500 text-sm leading-relaxed">15 Highland Terrace, Denver, CO 80201</p>
+                </div>
+            </div>
+
+            <!-- 6th SLOT: CTA UNLOCK BOX -->
+            <div class="flex flex-col items-center justify-center p-8 text-center bg-gray-50/80 rounded-[2.5rem] border-2 border-dashed border-gray-200 w-full min-h-[450px] lg:h-full">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-6"><i class="fas fa-house-chimney-window text-sky-500 text-2xl"></i></div>
+                <p class="text-gray-500 text-lg font-medium italic mb-2">Hungry for more luxury?</p>
+                <p class="text-gray-400 text-xs uppercase tracking-[0.2em] mb-8">Discover 50+ New Listings</p>
+                <button class="group relative px-10 py-5 bg-gray-900 text-white font-bold rounded-2xl overflow-hidden transition-all duration-300 shadow-xl hover:shadow-sky-200 w-full max-w-[280px] border-0">
+                    <span class="relative z-10 flex items-center justify-center gap-3">UNLOCK ALL SECRETS <i class="fas fa-key text-sky-400"></i></span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-sky-600 to-sky-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CONTACT SECTION -->
+    <section class="w-full py-20 px-6 lg:px-20 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="bg-[#0f172a] rounded-[3rem] p-10 md:p-16 lg:p-20 shadow-2xl flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">Have Questions? <br><span class="text-sky-500">Get in Touch.</span></h2>
+                    <p class="text-gray-400 text-lg mb-12 max-w-sm">Our experts are here to help you navigate your next big decision.</p>
+                    <div class="space-y-8 text-white">
+                        <div class="flex items-center gap-5"><i class="fas fa-map-marker-alt text-red-500"></i><span>I.I Chundrigar Road, Lahore, PK</span></div>
+                        <div class="flex items-center gap-5"><i class="fas fa-envelope text-sky-500"></i><span>support@dreamhome.com</span></div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 w-full">
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Your Name" class="w-full px-6 py-5 bg-[#1e293b] border border-gray-800 rounded-2xl outline-none text-white focus:border-sky-500">
+                        <input type="email" placeholder="Email Address" class="w-full px-6 py-5 bg-[#1e293b] border border-gray-800 rounded-2xl outline-none text-white focus:border-sky-500">
+                        <textarea rows="4" placeholder="How can we help?" class="w-full px-6 py-5 bg-[#1e293b] border border-gray-800 rounded-2xl outline-none text-white resize-none focus:border-sky-500"></textarea>
+                        <button type="submit" class="w-full py-5 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-2xl border-0 uppercase tracking-widest shadow-lg">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Shared footer will be injected here -->
+<div id="site-footer"></div>
+<script>
+    (function(){
+        const container = document.getElementById('site-footer');
+        const path = window.location.pathname.includes('/pages/') ? 'footer.html' : 'pages/footer.html';
+        fetch(path).then(r=>r.text()).then(html=>{ container.innerHTML = html; }).catch(()=>{ container.innerHTML = '<p class="text-red-500 p-6">Footer failed to load.</p>'; });
+    })();
+</script>
+<!-- --- CHATBOT START --- -->
+<div class="fixed bottom-6 right-6 z-[9999] font-['Poppins']">
+    
+    <!-- 1. Chat Toggle Button (The Floating Icon) -->
+    <button id="chatToggle" class="w-16 h-16 bg-sky-500 hover:bg-sky-600 text-white rounded-full shadow-[0_10px_40px_rgba(14,165,233,0.4)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group relative">
+        <!-- Chat Icon -->
+        <i class="fas fa-comment-dots text-2xl group-hover:hidden"></i>
+        <!-- Close Icon (Hidden by default) -->
+        <i class="fas fa-times text-2xl hidden group-hover:block transition-all animate-pulse" id="closeIcon"></i>
+        
+        <!-- Online Indicator Dot -->
+        <span class="absolute top-1 right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
+    </button>
+
+    <!-- 2. Chat Window Box (Hidden by default) -->
+    <div id="chatBox" class="hidden absolute bottom-20 right-0 w-[350px] md:w-[400px] bg-white rounded-[2rem] shadow-[0_20px_60px_rgba(0,0,0,0.15)] overflow-hidden border border-gray-100 flex flex-col transition-all duration-500">
+        
+        <!-- Chat Header -->
+        <div class="bg-sky-500 p-6 text-white flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center border border-white/30">
+                    <i class="fas fa-robot text-lg"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm">DreamHome Assistant</h4>
+                    <p class="text-[10px] text-sky-100 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-ping"></span> Online Now
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleChat()" class="text-white/70 hover:text-white transition-colors">
+                <i class="fas fa-minus text-sm"></i>
+            </button>
+        </div>
+
+        <!-- Chat Body (Messages Area) -->
+        <div id="chatBody" class="h-80 overflow-y-auto p-6 bg-gray-50/50 space-y-4">
+            <!-- Bot Welcome Message -->
+            <div class="flex flex-col items-start max-w-[85%]">
+                <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 text-[13px] text-gray-700 leading-relaxed">
+                    Hello! Welcome to <span class="text-sky-500 font-bold">DreamHome</span>. How can I help you find your sanctuary today? 🏠
+                </div>
+                <span class="text-[9px] text-gray-400 mt-1 ml-1">Assistant · 1:39 PM</span>
+            </div>
+            
+            <!-- Quick Options (Updated with Sell Tag) -->
+<div class="flex flex-wrap gap-2 pt-2">
+    <button class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Buy Property</button>
+    
+    <!-- Naya Sell Button -->
+    <button class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Sell Property</button>
+    
+    <button class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Rent a Home</button>
+    <button class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Contact Agent</button>
+</div>
+
+        <!-- Chat Footer (Input Area) -->
+        <div class="p-4 bg-white border-t border-gray-50 flex items-center gap-3">
+            <input type="text" id="userInput" placeholder="Type your message here..." 
+                   class="flex-grow bg-gray-50 border-0 outline-none px-4 py-3 rounded-xl text-sm placeholder:text-gray-400 focus:ring-1 focus:ring-sky-200 transition-all">
+            <button id="sendMsg" class="w-10 h-10 bg-sky-500 text-white rounded-xl flex items-center justify-center hover:bg-sky-600 shadow-md transition-all active:scale-90">
+                <i class="fas fa-paper-plane text-sm"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- --- CHATBOT JAVASCRIPT --- -->
+<script>
+    const chatToggle = document.getElementById('chatToggle');
+    const chatBox = document.getElementById('chatBox');
+    const chatBody = document.getElementById('chatBody');
+    const userInput = document.getElementById('userInput');
+    const sendMsg = document.getElementById('sendMsg');
+
+    // Toggle Chat Window
+    function toggleChat() {
+        chatBox.classList.toggle('hidden');
+        // Animation class (optional)
+        if (!chatBox.classList.contains('hidden')) {
+            chatBox.classList.add('animate-slide-up');
+        }
+    }
+
+    chatToggle.addEventListener('click', toggleChat);
+
+    // Simple Message Sending Logic (Simulated)
+    function sendMessage() {
+        const text = userInput.value.trim();
+        if (text === "") return;
+
+        // User Message HTML
+        const userHtml = `
+            <div class="flex flex-col items-end max-w-[85%] ml-auto">
+                <div class="bg-sky-500 p-3 rounded-2xl rounded-tr-none text-white text-[13px] leading-relaxed shadow-md">
+                    ${text}
+                </div>
+                <span class="text-[9px] text-gray-400 mt-1 mr-1 text-right">You · Just now</span>
+            </div>
+        `;
+
+        chatBody.insertAdjacentHTML('beforeend', userHtml);
+        userInput.value = "";
+        
+        // Scroll to bottom
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Simulated Bot Response
+        setTimeout(() => {
+            const botHtml = `
+                <div class="flex flex-col items-start max-w-[85%]">
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 text-[13px] text-gray-700 leading-relaxed">
+                        Got it! Our agent will connect with you shortly about "${text}".
+                    </div>
+                    <span class="text-[9px] text-gray-400 mt-1 ml-1">Assistant · Just now</span>
+                </div>
+            `;
+            chatBody.insertAdjacentHTML('beforeend', botHtml);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }, 1000);
+    }
+
+    sendMsg.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+</script>
+
+<style>
+    /* Custom animation for chat box appear */
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-slide-up {
+        animation: slideUp 0.3s ease-out forwards;
+    }
+</style>
+<!-- --- CHATBOT END --- -->
+ 
+</body>
+</html>
