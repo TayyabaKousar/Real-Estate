@@ -117,7 +117,7 @@
                         <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
                         <!-- Dark Overlay on Hover -->
                         <div class="absolute inset-0 bg-[#0f172a]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="px-8 py-3 bg-white text-[#0f172a] font-black text-[10px] uppercase rounded-full shadow-2xl">View Detail</span>
+                            <button class="viewDetailBtn px-8 py-3 bg-white text-[#0f172a] font-black text-[10px] uppercase rounded-full shadow-2xl hover:bg-sky-500 hover:text-white transition-colors">View Detail</button>
                         </div>
                     </div>
                     <div class="px-4">
@@ -144,7 +144,7 @@
                     <div class="relative h-80 rounded-[3rem] overflow-hidden mb-6 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-[#0f172a]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="px-8 py-3 bg-white text-[#0f172a] font-black text-[10px] uppercase rounded-full shadow-2xl">View Detail</span>
+                            <button class="viewDetailBtn px-8 py-3 bg-white text-[#0f172a] font-black text-[10px] uppercase rounded-full shadow-2xl hover:bg-sky-500 hover:text-white transition-colors">View Detail</button>
                         </div>
                     </div>
                     <div class="px-4">
@@ -171,7 +171,7 @@
                     <div class="relative h-80 rounded-[3rem] overflow-hidden mb-6 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
                         <div class="absolute inset-0 bg-[#0f172a]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="px-8 py-3 bg-white text-[#0f172a] font-black text-[10px] uppercase rounded-full shadow-2xl">View Detail</span>
+                            <button class="viewDetailBtn px-8 py-3 bg-white text-[#0f172a] font-black text-[10px] uppercase rounded-full shadow-2xl hover:bg-sky-500 hover:text-white transition-colors">View Detail</button>
                         </div>
                     </div>
                     <div class="px-4">
@@ -196,6 +196,40 @@
         </div>
     </section>
 
+    <!-- Modal for Property Details -->
+    <div id="propertyModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-[2.5rem] max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-black text-[#0f172a] uppercase">Property Details</h3>
+                    <button id="closeModal" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+                </div>
+                <div id="modalContent">
+                    <!-- Content will be populated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Contact Form -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-[2.5rem] max-w-md w-full mx-4">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-black text-[#0f172a] uppercase">Contact Agent</h3>
+                    <button id="closeContactModal" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+                </div>
+                <form id="agentContactForm" class="space-y-4">
+                    <input type="text" id="contactName" placeholder="Your Name" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-3 px-4 text-sm outline-none focus:border-sky-500 transition-all" required>
+                    <input type="email" id="contactEmail" placeholder="Your Email" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-3 px-4 text-sm outline-none focus:border-sky-500 transition-all" required>
+                    <input type="tel" id="contactPhone" placeholder="Your Phone" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-3 px-4 text-sm outline-none focus:border-sky-500 transition-all" required>
+                    <textarea id="contactMessage" placeholder="Your Message" rows="4" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-3 px-4 text-sm outline-none focus:border-sky-500 transition-all" required></textarea>
+                    <button type="submit" class="w-full py-3 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-2xl text-sm uppercase tracking-widest transition-colors">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 <!-- Shared footer will be injected here -->
 <div id="site-footer"></div>
 <script>
@@ -204,6 +238,81 @@
         const path = window.location.pathname.includes('/pages/') ? 'footer.html' : 'pages/footer.html';
         fetch(path).then(r=>r.text()).then(html=>{ container.innerHTML = html; }).catch(()=>{ container.innerHTML = '<p class="text-red-500 p-6">Footer failed to load.</p>'; });
     })();
+
+    // Modal functionality
+    const modal = document.getElementById('propertyModal');
+    const contactModal = document.getElementById('contactModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const closeContactModalBtn = document.getElementById('closeContactModal');
+    const modalContent = document.getElementById('modalContent');
+
+    // Get all View Detail buttons
+    const viewButtons = document.querySelectorAll('.viewDetailBtn');
+    viewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const card = this.closest('.group');
+            const img = card.querySelector('img').src;
+            const price = card.querySelector('h3').textContent;
+            const location = card.querySelector('p').textContent;
+            const beds = card.querySelectorAll('.flex.items-center.gap-2')[0].textContent.trim();
+            const baths = card.querySelectorAll('.flex.items-center.gap-2')[1].textContent.trim();
+
+            modalContent.innerHTML = `
+                <img src="${img}" alt="Property" class="w-full h-64 object-cover rounded-2xl mb-6">
+                <h4 class="text-3xl font-black text-[#0f172a] mb-4">${price}</h4>
+                <p class="text-gray-600 text-sm mb-4">${location}</p>
+                <div class="flex gap-6 mb-6">
+                    <span class="text-gray-500 text-xs font-bold uppercase">${beds}</span>
+                    <span class="text-gray-500 text-xs font-bold uppercase">${baths}</span>
+                </div>
+                <p class="text-gray-700 text-sm leading-relaxed mb-6">This luxurious property offers stunning views and premium amenities. Contact us to schedule a viewing and experience the lifestyle you deserve.</p>
+                <button id="contactAgentBtn" class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-2xl text-sm uppercase tracking-widest transition-colors">Contact Agent</button>
+            `;
+
+            // Add event listener for Contact Agent button
+            setTimeout(() => {
+                const contactBtn = document.getElementById('contactAgentBtn');
+                if (contactBtn) {
+                    contactBtn.addEventListener('click', () => {
+                        modal.classList.add('hidden');
+                        contactModal.classList.remove('hidden');
+                    });
+                }
+            }, 0);
+
+            modal.classList.remove('hidden');
+        });
+    });
+
+    // Close property modal
+    closeModalBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+
+    // Close contact modal
+    closeContactModalBtn.addEventListener('click', () => {
+        contactModal.classList.add('hidden');
+    });
+
+    // Close modals on outside click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+    contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+            contactModal.classList.add('hidden');
+        }
+    });
+
+    // Contact form submission
+    const contactForm = document.getElementById('agentContactForm');
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you! Your message has been sent to the agent.');
+        contactModal.classList.add('hidden');
+    });
 </script>
 </body>
 </html>
