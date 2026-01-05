@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | DreamHome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 antialiased">
+
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-[#0f172a] text-white z-50">
+        <!-- Logo -->
+        <div class="p-6 border-b border-gray-700">
+            <a href="../index.html" class="text-2xl font-bold text-white tracking-tight">
+                Dream<span class="text-sky-400">Home</span>
+            </a>
+            <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Admin Panel</p>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="p-4">
+            <ul class="space-y-2">
+                <li>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 bg-sky-500 rounded-xl text-white font-medium">
+                        <i class="fas fa-home w-5"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                        <i class="fas fa-building w-5"></i>
+                        <span>Properties</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                        <i class="fas fa-users w-5"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                        <i class="fas fa-envelope w-5"></i>
+                        <span>Messages</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                        <i class="fas fa-chart-bar w-5"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                        <i class="fas fa-cog w-5"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Logout -->
+        <div class="absolute bottom-0 left-0 w-full p-4 border-t border-gray-700">
+            <a href="login.html" class="flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-all">
+                <i class="fas fa-sign-out-alt w-5"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 min-h-screen">
+        <!-- Top Header -->
+        <header class="bg-white shadow-sm px-8 py-4 flex items-center justify-between sticky top-0 z-40">
+            <div>
+                <h1 class="text-2xl font-bold text-[#0f172a]">Dashboard</h1>
+                <p class="text-gray-400 text-sm">Welcome back, Admin!</p>
+            </div>
+            <div class="flex items-center gap-6">
+                <!-- Notifications -->
+                <button class="relative text-gray-500 hover:text-sky-500 transition">
+                    <i class="fas fa-bell text-xl"></i>
+                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] rounded-full flex items-center justify-center">5</span>
+                </button>
+                <!-- Admin Profile -->
+                <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" class="w-10 h-10 rounded-full object-cover border-2 border-sky-500">
+                    <div>
+                        <p class="font-semibold text-[#0f172a] text-sm">Admin User</p>
+                        <p class="text-xs text-gray-400">Super Admin</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="p-8">
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Total Properties -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-500 group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-building text-xl"></i>
+                        </div>
+                        <span class="text-green-500 text-xs font-bold bg-green-50 px-2 py-1 rounded-full">+12%</span>
+                    </div>
+                    <h3 class="text-3xl font-black text-[#0f172a]">1,248</h3>
+                    <p class="text-gray-400 text-sm">Total Properties</p>
+                </div>
+
+                <!-- Total Users -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <span class="text-green-500 text-xs font-bold bg-green-50 px-2 py-1 rounded-full">+8%</span>
+                    </div>
+                    <h3 class="text-3xl font-black text-[#0f172a]">8,420</h3>
+                    <p class="text-gray-400 text-sm">Total Users</p>
+                </div>
+
+                <!-- Total Sales -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 group-hover:bg-green-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-rupee-sign text-xl"></i>
+                        </div>
+                        <span class="text-green-500 text-xs font-bold bg-green-50 px-2 py-1 rounded-full">+24%</span>
+                    </div>
+                    <h3 class="text-3xl font-black text-[#0f172a]">PKR 85M</h3>
+                    <p class="text-gray-400 text-sm">Total Sales</p>
+                </div>
+
+                <!-- Pending Requests -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-clock text-xl"></i>
+                        </div>
+                        <span class="text-red-500 text-xs font-bold bg-red-50 px-2 py-1 rounded-full">-3%</span>
+                    </div>
+                    <h3 class="text-3xl font-black text-[#0f172a]">56</h3>
+                    <p class="text-gray-400 text-sm">Pending Requests</p>
+                </div>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Recent Properties -->
+                <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold text-[#0f172a]">Recent Properties</h2>
+                        <button class="text-sky-500 text-sm font-bold hover:underline">View All</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="text-left text-gray-400 text-xs uppercase tracking-wider border-b">
+                                    <th class="pb-4">Property</th>
+                                    <th class="pb-4">Location</th>
+                                    <th class="pb-4">Price</th>
+                                    <th class="pb-4">Status</th>
+                                    <th class="pb-4">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4">
+                                        <div class="flex items-center gap-3">
+                                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=100" class="w-12 h-12 rounded-xl object-cover">
+                                            <div>
+                                                <p class="font-semibold text-[#0f172a] text-sm">Luxury Villa</p>
+                                                <p class="text-xs text-gray-400">5 Beds, 4 Baths</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-sm text-gray-500">DHA Lahore</td>
+                                    <td class="text-sm font-bold text-[#0f172a]">PKR 8.5 Cr</td>
+                                    <td><span class="bg-green-100 text-green-600 text-xs px-3 py-1 rounded-full font-medium">Active</span></td>
+                                    <td>
+                                        <button class="text-sky-500 hover:text-sky-600"><i class="fas fa-edit"></i></button>
+                                        <button class="text-red-500 hover:text-red-600 ml-3"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4">
+                                        <div class="flex items-center gap-3">
+                                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=100" class="w-12 h-12 rounded-xl object-cover">
+                                            <div>
+                                                <p class="font-semibold text-[#0f172a] text-sm">Modern Apartment</p>
+                                                <p class="text-xs text-gray-400">3 Beds, 2 Baths</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-sm text-gray-500">Bahria Town</td>
+                                    <td class="text-sm font-bold text-[#0f172a]">PKR 2.1 Cr</td>
+                                    <td><span class="bg-yellow-100 text-yellow-600 text-xs px-3 py-1 rounded-full font-medium">Pending</span></td>
+                                    <td>
+                                        <button class="text-sky-500 hover:text-sky-600"><i class="fas fa-edit"></i></button>
+                                        <button class="text-red-500 hover:text-red-600 ml-3"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4">
+                                        <div class="flex items-center gap-3">
+                                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=100" class="w-12 h-12 rounded-xl object-cover">
+                                            <div>
+                                                <p class="font-semibold text-[#0f172a] text-sm">Penthouse Suite</p>
+                                                <p class="text-xs text-gray-400">4 Beds, 3 Baths</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-sm text-gray-500">Gulberg III</td>
+                                    <td class="text-sm font-bold text-[#0f172a]">PKR 12 Cr</td>
+                                    <td><span class="bg-green-100 text-green-600 text-xs px-3 py-1 rounded-full font-medium">Active</span></td>
+                                    <td>
+                                        <button class="text-sky-500 hover:text-sky-600"><i class="fas fa-edit"></i></button>
+                                        <button class="text-red-500 hover:text-red-600 ml-3"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-4">
+                                        <div class="flex items-center gap-3">
+                                            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=100" class="w-12 h-12 rounded-xl object-cover">
+                                            <div>
+                                                <p class="font-semibold text-[#0f172a] text-sm">Family Home</p>
+                                                <p class="text-xs text-gray-400">6 Beds, 5 Baths</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-sm text-gray-500">F-7 Islamabad</td>
+                                    <td class="text-sm font-bold text-[#0f172a]">PKR 15 Cr</td>
+                                    <td><span class="bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full font-medium">Sold</span></td>
+                                    <td>
+                                        <button class="text-sky-500 hover:text-sky-600"><i class="fas fa-edit"></i></button>
+                                        <button class="text-red-500 hover:text-red-600 ml-3"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recent Users -->
+                <div class="bg-white rounded-2xl shadow-sm p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold text-[#0f172a]">Recent Users</h2>
+                        <button class="text-sky-500 text-sm font-bold hover:underline">View All</button>
+                    </div>
+                    <div class="space-y-4">
+                        <!-- User 1 -->
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="w-12 h-12 rounded-full object-cover">
+                            <div class="flex-1">
+                                <p class="font-semibold text-[#0f172a] text-sm">Ahmed Khan</p>
+                                <p class="text-xs text-gray-400">ahmed@email.com</p>
+                            </div>
+                            <span class="bg-sky-100 text-sky-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Buyer</span>
+                        </div>
+                        <!-- User 2 -->
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" class="w-12 h-12 rounded-full object-cover">
+                            <div class="flex-1">
+                                <p class="font-semibold text-[#0f172a] text-sm">Sara Ali</p>
+                                <p class="text-xs text-gray-400">sara@email.com</p>
+                            </div>
+                            <span class="bg-purple-100 text-purple-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Seller</span>
+                        </div>
+                        <!-- User 3 -->
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" class="w-12 h-12 rounded-full object-cover">
+                            <div class="flex-1">
+                                <p class="font-semibold text-[#0f172a] text-sm">Usman Malik</p>
+                                <p class="text-xs text-gray-400">usman@email.com</p>
+                            </div>
+                            <span class="bg-green-100 text-green-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Agent</span>
+                        </div>
+                        <!-- User 4 -->
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" class="w-12 h-12 rounded-full object-cover">
+                            <div class="flex-1">
+                                <p class="font-semibold text-[#0f172a] text-sm">Ayesha Noor</p>
+                                <p class="text-xs text-gray-400">ayesha@email.com</p>
+                            </div>
+                            <span class="bg-sky-100 text-sky-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Buyer</span>
+                        </div>
+                        <!-- User 5 -->
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" class="w-12 h-12 rounded-full object-cover">
+                            <div class="flex-1">
+                                <p class="font-semibold text-[#0f172a] text-sm">Bilal Hassan</p>
+                                <p class="text-xs text-gray-400">bilal@email.com</p>
+                            </div>
+                            <span class="bg-purple-100 text-purple-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Seller</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Messages Section -->
+            <div class="mt-8 bg-white rounded-2xl shadow-sm p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-[#0f172a]">Recent Messages</h2>
+                    <button class="text-sky-500 text-sm font-bold hover:underline">View All</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Message 1 -->
+                    <div class="border-2 border-transparent hover:border-sky-500 rounded-2xl p-4 transition-all duration-500 bg-gray-50">
+                        <div class="flex items-center gap-3 mb-3">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <p class="font-semibold text-sm text-[#0f172a]">Ahmed Khan</p>
+                                <p class="text-[10px] text-gray-400">2 hours ago</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 line-clamp-2">I'm interested in the luxury villa in DHA. Can you provide more details about the property?</p>
+                    </div>
+                    <!-- Message 2 -->
+                    <div class="border-2 border-transparent hover:border-sky-500 rounded-2xl p-4 transition-all duration-500 bg-gray-50">
+                        <div class="flex items-center gap-3 mb-3">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <p class="font-semibold text-sm text-[#0f172a]">Sara Ali</p>
+                                <p class="text-[10px] text-gray-400">5 hours ago</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 line-clamp-2">Please update my listing photos. I've sent the new images via email.</p>
+                    </div>
+                    <!-- Message 3 -->
+                    <div class="border-2 border-transparent hover:border-sky-500 rounded-2xl p-4 transition-all duration-500 bg-gray-50">
+                        <div class="flex items-center gap-3 mb-3">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <p class="font-semibold text-sm text-[#0f172a]">Usman Malik</p>
+                                <p class="text-[10px] text-gray-400">1 day ago</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 line-clamp-2">The client wants to schedule a viewing for the Bahria Town apartment this weekend.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

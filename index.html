@@ -53,6 +53,38 @@
                 <div class="flex items-center space-x-4 ml-4">
                     <a href="pages/login.html" class="hover:text-sky-400 transition">Login</a>
                     <a href="pages/signup.html" class="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2 rounded-full transition shadow-lg border-0">Signup</a>
+                    <!-- Dashboard - Neon Glow Style -->
+                    <div class="relative group">
+                        <button class="dashboard-btn relative px-6 py-2.5 rounded-full font-bold text-sm text-white border-2 border-cyan-400 bg-transparent hover:bg-cyan-400/10 transition-all duration-300">
+                            <span class="relative z-10 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/></svg>
+                                Dashboard
+                            </span>
+                        </button>
+                        <!-- Dropdown -->
+                        <div class="absolute right-0 mt-4 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+                            <div class="bg-[#0a0a0a] border border-cyan-500/30 rounded-2xl p-2 shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+                                <a href="pages/user-dashboard.html" class="flex items-center gap-4 p-3 rounded-xl hover:bg-cyan-500/10 transition-all group/link">
+                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+                                        <i class="fas fa-user text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-semibold text-sm">User Panel</p>
+                                        <p class="text-cyan-400/60 text-[10px]">View your account</p>
+                                    </div>
+                                </a>
+                                <a href="pages/admin-dashboard.html" class="flex items-center gap-4 p-3 rounded-xl hover:bg-fuchsia-500/10 transition-all group/link">
+                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-400 to-purple-600 flex items-center justify-center shadow-[0_0_15px_rgba(217,70,239,0.5)]">
+                                        <i class="fas fa-crown text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-semibold text-sm">Admin Panel</p>
+                                        <p class="text-fuchsia-400/60 text-[10px]">Manage everything</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="lg:hidden text-white text-2xl"><i class="fas fa-bars"></i></div>
