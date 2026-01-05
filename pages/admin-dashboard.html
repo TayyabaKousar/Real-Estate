@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | DreamHome</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -14,9 +19,15 @@
             font-family: 'Poppins', sans-serif;
         }
     </style>
+    <script>
+        // Check for dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 </head>
 
-<body class="bg-gray-100 antialiased">
+<body class="bg-gray-100 dark:bg-gray-900 antialiased transition-colors duration-300">
 
     <!-- Sidebar -->
     <aside class="fixed left-0 top-0 h-full w-64 bg-[#0f172a] text-white z-50">
@@ -32,37 +43,37 @@
         <nav class="p-4">
             <ul class="space-y-2">
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 bg-sky-500 rounded-xl text-white font-medium">
+                    <a href="#dashboard-stats" onclick="navigateTo('dashboard-stats')" class="sidebar-link active flex items-center gap-3 px-4 py-3 bg-sky-500 rounded-xl text-white font-medium">
                         <i class="fas fa-home w-5"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                    <a href="#properties-section" onclick="navigateTo('properties-section')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
                         <i class="fas fa-building w-5"></i>
                         <span>Properties</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                    <a href="#users-section" onclick="navigateTo('users-section')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
                         <i class="fas fa-users w-5"></i>
                         <span>Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                    <a href="#messages-section" onclick="navigateTo('messages-section')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
                         <i class="fas fa-envelope w-5"></i>
                         <span>Messages</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                    <a href="#analytics-section" onclick="navigateTo('analytics-section')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
                         <i class="fas fa-chart-bar w-5"></i>
                         <span>Analytics</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                    <a href="#settings-section" onclick="navigateTo('settings-section')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
                         <i class="fas fa-cog w-5"></i>
                         <span>Settings</span>
                     </a>
@@ -82,14 +93,14 @@
     <!-- Main Content -->
     <main class="ml-64 min-h-screen">
         <!-- Top Header -->
-        <header class="bg-white shadow-sm px-8 py-4 flex items-center justify-between sticky top-0 z-40">
+        <header class="bg-white dark:bg-gray-800 shadow-sm px-8 py-4 flex items-center justify-between sticky top-0 z-40 transition-colors duration-300">
             <div>
-                <h1 class="text-2xl font-bold text-[#0f172a]">Dashboard</h1>
+                <h1 class="text-2xl font-bold text-[#0f172a] dark:text-white">Dashboard</h1>
                 <p class="text-gray-400 text-sm">Welcome back, Admin!</p>
             </div>
             <div class="flex items-center gap-6">
                 <!-- Notifications -->
-                <button class="relative text-gray-500 hover:text-sky-500 transition">
+                <button class="relative text-gray-500 dark:text-gray-300 hover:text-sky-500 transition">
                     <i class="fas fa-bell text-xl"></i>
                     <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] rounded-full flex items-center justify-center">5</span>
                 </button>
@@ -97,7 +108,7 @@
                 <div class="flex items-center gap-3">
                     <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" class="w-10 h-10 rounded-full object-cover border-2 border-sky-500">
                     <div>
-                        <p class="font-semibold text-[#0f172a] text-sm">Admin User</p>
+                        <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Admin User</p>
                         <p class="text-xs text-gray-400">Super Admin</p>
                     </div>
                 </div>
@@ -107,52 +118,52 @@
         <!-- Dashboard Content -->
         <div class="p-8">
             <!-- Stats Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div id="dashboard-stats" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 scroll-mt-20">
                 <!-- Total Properties -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
                     <div class="flex items-center justify-between mb-4">
                         <div class="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-500 group-hover:bg-sky-500 group-hover:text-white transition-colors">
                             <i class="fas fa-building text-xl"></i>
                         </div>
-                        <span class="text-green-500 text-xs font-bold bg-green-50 px-2 py-1 rounded-full">+12%</span>
+                        <span class="text-green-500 text-xs font-bold bg-green-50 dark:bg-green-500/20 px-2 py-1 rounded-full">+12%</span>
                     </div>
-                    <h3 class="text-3xl font-black text-[#0f172a]">1,248</h3>
+                    <h3 class="text-3xl font-black text-[#0f172a] dark:text-white">1,248</h3>
                     <p class="text-gray-400 text-sm">Total Properties</p>
                 </div>
 
                 <!-- Total Users -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
                     <div class="flex items-center justify-between mb-4">
                         <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors">
                             <i class="fas fa-users text-xl"></i>
                         </div>
-                        <span class="text-green-500 text-xs font-bold bg-green-50 px-2 py-1 rounded-full">+8%</span>
+                        <span class="text-green-500 text-xs font-bold bg-green-50 dark:bg-green-500/20 px-2 py-1 rounded-full">+8%</span>
                     </div>
-                    <h3 class="text-3xl font-black text-[#0f172a]">8,420</h3>
+                    <h3 class="text-3xl font-black text-[#0f172a] dark:text-white">8,420</h3>
                     <p class="text-gray-400 text-sm">Total Users</p>
                 </div>
 
                 <!-- Total Sales -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
                     <div class="flex items-center justify-between mb-4">
                         <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 group-hover:bg-green-500 group-hover:text-white transition-colors">
                             <i class="fas fa-rupee-sign text-xl"></i>
                         </div>
-                        <span class="text-green-500 text-xs font-bold bg-green-50 px-2 py-1 rounded-full">+24%</span>
+                        <span class="text-green-500 text-xs font-bold bg-green-50 dark:bg-green-500/20 px-2 py-1 rounded-full">+24%</span>
                     </div>
-                    <h3 class="text-3xl font-black text-[#0f172a]">PKR 85M</h3>
+                    <h3 class="text-3xl font-black text-[#0f172a] dark:text-white">PKR 85M</h3>
                     <p class="text-gray-400 text-sm">Total Sales</p>
                 </div>
 
                 <!-- Pending Requests -->
-                <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
                     <div class="flex items-center justify-between mb-4">
                         <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors">
                             <i class="fas fa-clock text-xl"></i>
                         </div>
-                        <span class="text-red-500 text-xs font-bold bg-red-50 px-2 py-1 rounded-full">-3%</span>
+                        <span class="text-red-500 text-xs font-bold bg-red-50 dark:bg-red-500/20 px-2 py-1 rounded-full">-3%</span>
                     </div>
-                    <h3 class="text-3xl font-black text-[#0f172a]">56</h3>
+                    <h3 class="text-3xl font-black text-[#0f172a] dark:text-white">56</h3>
                     <p class="text-gray-400 text-sm">Pending Requests</p>
                 </div>
             </div>
@@ -160,15 +171,15 @@
             <!-- Main Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Recent Properties -->
-                <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm p-6">
+                <div id="properties-section" class="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 scroll-mt-20 transition-colors duration-300">
                     <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-xl font-bold text-[#0f172a]">Recent Properties</h2>
+                        <h2 class="text-xl font-bold text-[#0f172a] dark:text-white">Recent Properties</h2>
                         <button class="text-sky-500 text-sm font-bold hover:underline">View All</button>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full">
                             <thead>
-                                <tr class="text-left text-gray-400 text-xs uppercase tracking-wider border-b">
+                                <tr class="text-left text-gray-400 text-xs uppercase tracking-wider border-b dark:border-gray-700">
                                     <th class="pb-4">Property</th>
                                     <th class="pb-4">Location</th>
                                     <th class="pb-4">Price</th>
@@ -176,74 +187,74 @@
                                     <th class="pb-4">Action</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y">
-                                <tr class="hover:bg-gray-50">
+                            <tbody class="divide-y dark:divide-gray-700">
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
                                     <td class="py-4">
                                         <div class="flex items-center gap-3">
                                             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=100" class="w-12 h-12 rounded-xl object-cover">
                                             <div>
-                                                <p class="font-semibold text-[#0f172a] text-sm">Luxury Villa</p>
+                                                <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Luxury Villa</p>
                                                 <p class="text-xs text-gray-400">5 Beds, 4 Baths</p>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-sm text-gray-500">DHA Lahore</td>
-                                    <td class="text-sm font-bold text-[#0f172a]">PKR 8.5 Cr</td>
-                                    <td><span class="bg-green-100 text-green-600 text-xs px-3 py-1 rounded-full font-medium">Active</span></td>
+                                    <td class="text-sm text-gray-500 dark:text-gray-400">DHA Lahore</td>
+                                    <td class="text-sm font-bold text-[#0f172a] dark:text-white">PKR 8.5 Cr</td>
+                                    <td><span class="bg-green-100 dark:bg-green-500/20 text-green-600 text-xs px-3 py-1 rounded-full font-medium">Active</span></td>
                                     <td>
                                         <button class="text-sky-500 hover:text-sky-600"><i class="fas fa-edit"></i></button>
                                         <button class="text-red-500 hover:text-red-600 ml-3"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
-                                <tr class="hover:bg-gray-50">
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
                                     <td class="py-4">
                                         <div class="flex items-center gap-3">
                                             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=100" class="w-12 h-12 rounded-xl object-cover">
                                             <div>
-                                                <p class="font-semibold text-[#0f172a] text-sm">Modern Apartment</p>
+                                                <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Modern Apartment</p>
                                                 <p class="text-xs text-gray-400">3 Beds, 2 Baths</p>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-sm text-gray-500">Bahria Town</td>
-                                    <td class="text-sm font-bold text-[#0f172a]">PKR 2.1 Cr</td>
-                                    <td><span class="bg-yellow-100 text-yellow-600 text-xs px-3 py-1 rounded-full font-medium">Pending</span></td>
+                                    <td class="text-sm text-gray-500 dark:text-gray-400">Bahria Town</td>
+                                    <td class="text-sm font-bold text-[#0f172a] dark:text-white">PKR 2.1 Cr</td>
+                                    <td><span class="bg-yellow-100 dark:bg-yellow-500/20 text-yellow-600 text-xs px-3 py-1 rounded-full font-medium">Pending</span></td>
                                     <td>
                                         <button class="text-sky-500 hover:text-sky-600"><i class="fas fa-edit"></i></button>
                                         <button class="text-red-500 hover:text-red-600 ml-3"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
-                                <tr class="hover:bg-gray-50">
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
                                     <td class="py-4">
                                         <div class="flex items-center gap-3">
                                             <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=100" class="w-12 h-12 rounded-xl object-cover">
                                             <div>
-                                                <p class="font-semibold text-[#0f172a] text-sm">Penthouse Suite</p>
+                                                <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Penthouse Suite</p>
                                                 <p class="text-xs text-gray-400">4 Beds, 3 Baths</p>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-sm text-gray-500">Gulberg III</td>
-                                    <td class="text-sm font-bold text-[#0f172a]">PKR 12 Cr</td>
-                                    <td><span class="bg-green-100 text-green-600 text-xs px-3 py-1 rounded-full font-medium">Active</span></td>
+                                    <td class="text-sm text-gray-500 dark:text-gray-400">Gulberg III</td>
+                                    <td class="text-sm font-bold text-[#0f172a] dark:text-white">PKR 12 Cr</td>
+                                    <td><span class="bg-green-100 dark:bg-green-500/20 text-green-600 text-xs px-3 py-1 rounded-full font-medium">Active</span></td>
                                     <td>
                                         <button class="text-sky-500 hover:text-sky-600"><i class="fas fa-edit"></i></button>
                                         <button class="text-red-500 hover:text-red-600 ml-3"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
-                                <tr class="hover:bg-gray-50">
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
                                     <td class="py-4">
                                         <div class="flex items-center gap-3">
                                             <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=100" class="w-12 h-12 rounded-xl object-cover">
                                             <div>
-                                                <p class="font-semibold text-[#0f172a] text-sm">Family Home</p>
+                                                <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Family Home</p>
                                                 <p class="text-xs text-gray-400">6 Beds, 5 Baths</p>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-sm text-gray-500">F-7 Islamabad</td>
-                                    <td class="text-sm font-bold text-[#0f172a]">PKR 15 Cr</td>
-                                    <td><span class="bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full font-medium">Sold</span></td>
+                                    <td class="text-sm text-gray-500 dark:text-gray-400">F-7 Islamabad</td>
+                                    <td class="text-sm font-bold text-[#0f172a] dark:text-white">PKR 15 Cr</td>
+                                    <td><span class="bg-red-100 dark:bg-red-500/20 text-red-600 text-xs px-3 py-1 rounded-full font-medium">Sold</span></td>
                                     <td>
                                         <button class="text-sky-500 hover:text-sky-600"><i class="fas fa-edit"></i></button>
                                         <button class="text-red-500 hover:text-red-600 ml-3"><i class="fas fa-trash"></i></button>
@@ -255,105 +266,327 @@
                 </div>
 
                 <!-- Recent Users -->
-                <div class="bg-white rounded-2xl shadow-sm p-6">
+                <div id="users-section" class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 scroll-mt-20 transition-colors duration-300">
                     <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-xl font-bold text-[#0f172a]">Recent Users</h2>
+                        <h2 class="text-xl font-bold text-[#0f172a] dark:text-white">Recent Users</h2>
                         <button class="text-sky-500 text-sm font-bold hover:underline">View All</button>
                     </div>
                     <div class="space-y-4">
                         <!-- User 1 -->
-                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="w-12 h-12 rounded-full object-cover">
                             <div class="flex-1">
-                                <p class="font-semibold text-[#0f172a] text-sm">Ahmed Khan</p>
+                                <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Ahmed Khan</p>
                                 <p class="text-xs text-gray-400">ahmed@email.com</p>
                             </div>
-                            <span class="bg-sky-100 text-sky-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Buyer</span>
+                            <span class="bg-sky-100 dark:bg-sky-500/20 text-sky-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Buyer</span>
                         </div>
                         <!-- User 2 -->
-                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
                             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" class="w-12 h-12 rounded-full object-cover">
                             <div class="flex-1">
-                                <p class="font-semibold text-[#0f172a] text-sm">Sara Ali</p>
+                                <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Sara Ali</p>
                                 <p class="text-xs text-gray-400">sara@email.com</p>
                             </div>
-                            <span class="bg-purple-100 text-purple-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Seller</span>
+                            <span class="bg-purple-100 dark:bg-purple-500/20 text-purple-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Seller</span>
                         </div>
                         <!-- User 3 -->
-                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
                             <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" class="w-12 h-12 rounded-full object-cover">
                             <div class="flex-1">
-                                <p class="font-semibold text-[#0f172a] text-sm">Usman Malik</p>
+                                <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Usman Malik</p>
                                 <p class="text-xs text-gray-400">usman@email.com</p>
                             </div>
-                            <span class="bg-green-100 text-green-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Agent</span>
+                            <span class="bg-green-100 dark:bg-green-500/20 text-green-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Agent</span>
                         </div>
                         <!-- User 4 -->
-                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
                             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" class="w-12 h-12 rounded-full object-cover">
                             <div class="flex-1">
-                                <p class="font-semibold text-[#0f172a] text-sm">Ayesha Noor</p>
+                                <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Ayesha Noor</p>
                                 <p class="text-xs text-gray-400">ayesha@email.com</p>
                             </div>
-                            <span class="bg-sky-100 text-sky-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Buyer</span>
+                            <span class="bg-sky-100 dark:bg-sky-500/20 text-sky-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Buyer</span>
                         </div>
                         <!-- User 5 -->
-                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                        <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
                             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" class="w-12 h-12 rounded-full object-cover">
                             <div class="flex-1">
-                                <p class="font-semibold text-[#0f172a] text-sm">Bilal Hassan</p>
+                                <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Bilal Hassan</p>
                                 <p class="text-xs text-gray-400">bilal@email.com</p>
                             </div>
-                            <span class="bg-purple-100 text-purple-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Seller</span>
+                            <span class="bg-purple-100 dark:bg-purple-500/20 text-purple-600 text-[10px] px-2 py-1 rounded-full font-bold uppercase">Seller</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Recent Messages Section -->
-            <div class="mt-8 bg-white rounded-2xl shadow-sm p-6">
+            <div id="messages-section" class="mt-8 bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 scroll-mt-20 transition-colors duration-300">
                 <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-xl font-bold text-[#0f172a]">Recent Messages</h2>
+                    <h2 class="text-xl font-bold text-[#0f172a] dark:text-white">Recent Messages</h2>
                     <button class="text-sky-500 text-sm font-bold hover:underline">View All</button>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Message 1 -->
-                    <div class="border-2 border-transparent hover:border-sky-500 rounded-2xl p-4 transition-all duration-500 bg-gray-50">
+                    <div class="border-2 border-transparent hover:border-sky-500 rounded-2xl p-4 transition-all duration-500 bg-gray-50 dark:bg-gray-700/50">
                         <div class="flex items-center gap-3 mb-3">
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="w-10 h-10 rounded-full object-cover">
                             <div>
-                                <p class="font-semibold text-sm text-[#0f172a]">Ahmed Khan</p>
+                                <p class="font-semibold text-sm text-[#0f172a] dark:text-white">Ahmed Khan</p>
                                 <p class="text-[10px] text-gray-400">2 hours ago</p>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-500 line-clamp-2">I'm interested in the luxury villa in DHA. Can you provide more details about the property?</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">I'm interested in the luxury villa in DHA. Can you provide more details about the property?</p>
                     </div>
                     <!-- Message 2 -->
-                    <div class="border-2 border-transparent hover:border-sky-500 rounded-2xl p-4 transition-all duration-500 bg-gray-50">
+                    <div class="border-2 border-transparent hover:border-sky-500 rounded-2xl p-4 transition-all duration-500 bg-gray-50 dark:bg-gray-700/50">
                         <div class="flex items-center gap-3 mb-3">
                             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" class="w-10 h-10 rounded-full object-cover">
                             <div>
-                                <p class="font-semibold text-sm text-[#0f172a]">Sara Ali</p>
+                                <p class="font-semibold text-sm text-[#0f172a] dark:text-white">Sara Ali</p>
                                 <p class="text-[10px] text-gray-400">5 hours ago</p>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-500 line-clamp-2">Please update my listing photos. I've sent the new images via email.</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Please update my listing photos. I've sent the new images via email.</p>
                     </div>
                     <!-- Message 3 -->
-                    <div class="border-2 border-transparent hover:border-sky-500 rounded-2xl p-4 transition-all duration-500 bg-gray-50">
+                    <div class="border-2 border-transparent hover:border-sky-500 rounded-2xl p-4 transition-all duration-500 bg-gray-50 dark:bg-gray-700/50">
                         <div class="flex items-center gap-3 mb-3">
                             <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" class="w-10 h-10 rounded-full object-cover">
                             <div>
-                                <p class="font-semibold text-sm text-[#0f172a]">Usman Malik</p>
+                                <p class="font-semibold text-sm text-[#0f172a] dark:text-white">Usman Malik</p>
                                 <p class="text-[10px] text-gray-400">1 day ago</p>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-500 line-clamp-2">The client wants to schedule a viewing for the Bahria Town apartment this weekend.</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">The client wants to schedule a viewing for the Bahria Town apartment this weekend.</p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Analytics Section Modal -->
+    <div id="analytics-section" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full mx-4 p-8 max-h-[90vh] overflow-y-auto transition-colors duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-[#0f172a] dark:text-white">Analytics Overview</h2>
+                <button onclick="closeModal('analytics-section')" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-2xl">&times;</button>
+            </div>
+            
+            <!-- Analytics Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-gradient-to-br from-sky-500 to-sky-600 rounded-2xl p-4 text-white">
+                    <i class="fas fa-eye text-2xl mb-2 opacity-80"></i>
+                    <h3 class="text-2xl font-black">45.2K</h3>
+                    <p class="text-xs opacity-80">Total Views</p>
+                </div>
+                <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-4 text-white">
+                    <i class="fas fa-mouse-pointer text-2xl mb-2 opacity-80"></i>
+                    <h3 class="text-2xl font-black">12.8K</h3>
+                    <p class="text-xs opacity-80">Total Clicks</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-4 text-white">
+                    <i class="fas fa-handshake text-2xl mb-2 opacity-80"></i>
+                    <h3 class="text-2xl font-black">892</h3>
+                    <p class="text-xs opacity-80">Deals Closed</p>
+                </div>
+                <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-4 text-white">
+                    <i class="fas fa-percentage text-2xl mb-2 opacity-80"></i>
+                    <h3 class="text-2xl font-black">28.4%</h3>
+                    <p class="text-xs opacity-80">Conversion Rate</p>
+                </div>
+            </div>
+
+            <!-- Traffic Sources -->
+            <div class="mb-6">
+                <h3 class="text-lg font-bold text-[#0f172a] dark:text-white mb-4">Traffic Sources</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm text-gray-500 dark:text-gray-400 w-24">Google</span>
+                        <div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                            <div class="bg-sky-500 h-3 rounded-full" style="width: 65%"></div>
+                        </div>
+                        <span class="text-sm font-bold text-[#0f172a] dark:text-white">65%</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm text-gray-500 dark:text-gray-400 w-24">Direct</span>
+                        <div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                            <div class="bg-purple-500 h-3 rounded-full" style="width: 20%"></div>
+                        </div>
+                        <span class="text-sm font-bold text-[#0f172a] dark:text-white">20%</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm text-gray-500 dark:text-gray-400 w-24">Social</span>
+                        <div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                            <div class="bg-green-500 h-3 rounded-full" style="width: 10%"></div>
+                        </div>
+                        <span class="text-sm font-bold text-[#0f172a] dark:text-white">10%</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm text-gray-500 dark:text-gray-400 w-24">Referral</span>
+                        <div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                            <div class="bg-orange-500 h-3 rounded-full" style="width: 5%"></div>
+                        </div>
+                        <span class="text-sm font-bold text-[#0f172a] dark:text-white">5%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Performing Properties -->
+            <div>
+                <h3 class="text-lg font-bold text-[#0f172a] dark:text-white mb-4">Top Performing Properties</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
+                        <span class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-white font-bold">1</span>
+                        <div class="flex-1">
+                            <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Luxury Villa, DHA Lahore</p>
+                            <p class="text-xs text-gray-400">2,450 views • 186 inquiries</p>
+                        </div>
+                        <span class="text-green-500 font-bold text-sm">+42%</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
+                        <span class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center text-white font-bold">2</span>
+                        <div class="flex-1">
+                            <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Penthouse Suite, Gulberg III</p>
+                            <p class="text-xs text-gray-400">1,890 views • 142 inquiries</p>
+                        </div>
+                        <span class="text-green-500 font-bold text-sm">+38%</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
+                        <span class="w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold">3</span>
+                        <div class="flex-1">
+                            <p class="font-semibold text-[#0f172a] dark:text-white text-sm">Modern Apartment, Bahria Town</p>
+                            <p class="text-xs text-gray-400">1,654 views • 98 inquiries</p>
+                        </div>
+                        <span class="text-green-500 font-bold text-sm">+25%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Section Modal -->
+    <div id="settings-section" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl max-w-lg w-full mx-4 p-8 transition-colors duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-[#0f172a] dark:text-white">Admin Settings</h2>
+                <button onclick="closeModal('settings-section')" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-bell text-sky-500"></i>
+                        <span class="font-medium text-[#0f172a] dark:text-white">Email Notifications</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 dark:bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-500"></div>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-user-plus text-sky-500"></i>
+                        <span class="font-medium text-[#0f172a] dark:text-white">New User Alerts</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 dark:bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-500"></div>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-building text-sky-500"></i>
+                        <span class="font-medium text-[#0f172a] dark:text-white">Property Alerts</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 dark:bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-500"></div>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-shield-alt text-sky-500"></i>
+                        <span class="font-medium text-[#0f172a] dark:text-white">Two-Factor Auth</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 dark:bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-500"></div>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-moon text-sky-500"></i>
+                        <span class="font-medium text-[#0f172a] dark:text-white">Dark Mode</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="darkModeToggle" class="sr-only peer" onchange="toggleDarkMode()">
+                        <div class="w-11 h-6 bg-gray-200 dark:bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-500"></div>
+                    </label>
+                </div>
+            </div>
+            <button class="w-full mt-6 py-3 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-600 transition">Save Settings</button>
+        </div>
+    </div>
+
+    <script>
+        // Dark Mode Toggle Function
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const isDark = html.classList.toggle('dark');
+            localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+        }
+
+        // Initialize dark mode toggle state on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            if (darkModeToggle) {
+                darkModeToggle.checked = document.documentElement.classList.contains('dark');
+            }
+        });
+
+        // Navigate to section
+        function navigateTo(sectionId) {
+            // Remove active class from all sidebar links
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.classList.remove('active', 'bg-sky-500', 'text-white');
+                link.classList.add('text-gray-400');
+            });
+
+            // Add active class to clicked link
+            event.currentTarget.classList.add('active', 'bg-sky-500', 'text-white');
+            event.currentTarget.classList.remove('text-gray-400');
+
+            // Check if it's a modal section
+            if (sectionId === 'analytics-section' || sectionId === 'settings-section') {
+                const modal = document.getElementById(sectionId);
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                // Scroll to section
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        // Close modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('#analytics-section, #settings-section').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+    </script>
 
 </body>
 

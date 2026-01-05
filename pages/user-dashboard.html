@@ -32,43 +32,43 @@
         <nav class="p-4">
             <ul class="space-y-2">
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 bg-sky-500 rounded-xl text-white font-medium">
+                    <a href="#dashboard-stats" onclick="navigateTo('dashboard-stats')" class="sidebar-link active flex items-center gap-3 px-4 py-3 bg-sky-500 rounded-xl text-white font-medium">
                         <i class="fas fa-home w-5"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                    <a href="#saved-properties" onclick="navigateTo('saved-properties')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
                         <i class="fas fa-heart w-5"></i>
                         <span>Saved Properties</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                    <a href="#my-listings" onclick="navigateTo('my-listings')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
                         <i class="fas fa-building w-5"></i>
                         <span>My Listings</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                    <a href="#messages-section" onclick="navigateTo('messages-section')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
                         <i class="fas fa-envelope w-5"></i>
                         <span>Messages</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                    <a href="#appointments-section" onclick="navigateTo('appointments-section')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
                         <i class="fas fa-calendar w-5"></i>
                         <span>Appointments</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                    <a href="#profile-section" onclick="navigateTo('profile-section')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
                         <i class="fas fa-user w-5"></i>
                         <span>My Profile</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
+                    <a href="#settings-section" onclick="navigateTo('settings-section')" class="sidebar-link flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 rounded-xl hover:text-white transition-all">
                         <i class="fas fa-cog w-5"></i>
                         <span>Settings</span>
                     </a>
@@ -91,7 +91,7 @@
         <header class="bg-white shadow-sm px-8 py-4 flex items-center justify-between sticky top-0 z-40">
             <div>
                 <h1 class="text-2xl font-bold text-[#0f172a]">My Dashboard</h1>
-                <p class="text-gray-400 text-sm">Welcome back, Ahmed!</p>
+                <p class="text-gray-400 text-sm">Welcome back, Ayesha!</p>
             </div>
             <div class="flex items-center gap-6">
                 <!-- Notifications -->
@@ -101,9 +101,9 @@
                 </button>
                 <!-- User Profile -->
                 <div class="flex items-center gap-3">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="w-10 h-10 rounded-full object-cover border-2 border-sky-500">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" class="w-10 h-10 rounded-full object-cover border-2 border-sky-500">
                     <div>
-                        <p class="font-semibold text-[#0f172a] text-sm">Ahmed Khan</p>
+                        <p class="font-semibold text-[#0f172a] text-sm">Ayesha Fatima</p>
                         <p class="text-xs text-gray-400">Premium Member</p>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
         <!-- Dashboard Content -->
         <div class="p-8">
             <!-- Quick Stats -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div id="dashboard-stats" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 scroll-mt-20">
                 <!-- Saved Properties -->
                 <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-transparent hover:border-sky-500 transition-all duration-500 group">
                     <div class="flex items-center justify-between mb-4">
@@ -160,7 +160,7 @@
             </div>
 
             <!-- Saved Properties Section -->
-            <div class="bg-white rounded-2xl shadow-sm p-6 mb-8">
+            <div id="saved-properties" class="bg-white rounded-2xl shadow-sm p-6 mb-8 scroll-mt-20">
                 <div class="flex items-center justify-between mb-6">
                     <h2 class="text-xl font-bold text-[#0f172a]">Saved Properties</h2>
                     <button class="text-sky-500 text-sm font-bold hover:underline">View All</button>
@@ -243,7 +243,7 @@
             <!-- Two Column Layout -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- My Listings -->
-                <div class="bg-white rounded-2xl shadow-sm p-6">
+                <div id="my-listings" class="bg-white rounded-2xl shadow-sm p-6 scroll-mt-20">
                     <div class="flex items-center justify-between mb-6">
                         <h2 class="text-xl font-bold text-[#0f172a]">My Listings</h2>
                         <a href="sell.html" class="bg-sky-500 text-white text-xs px-4 py-2 rounded-lg font-bold uppercase hover:bg-sky-600 transition">
@@ -294,7 +294,7 @@
                 </div>
 
                 <!-- Upcoming Appointments -->
-                <div class="bg-white rounded-2xl shadow-sm p-6">
+                <div id="appointments-section" class="bg-white rounded-2xl shadow-sm p-6 scroll-mt-20">
                     <div class="flex items-center justify-between mb-6">
                         <h2 class="text-xl font-bold text-[#0f172a]">Upcoming Appointments</h2>
                         <button class="text-sky-500 text-sm font-bold hover:underline">View All</button>
@@ -344,8 +344,8 @@
                 </div>
             </div>
 
-            <!-- Recent Activity -->
-            <div class="mt-8 bg-white rounded-2xl shadow-sm p-6">
+            <!-- Recent Activity / Messages Section -->
+            <div id="messages-section" class="mt-8 bg-white rounded-2xl shadow-sm p-6 scroll-mt-20">
                 <h2 class="text-xl font-bold text-[#0f172a] mb-6">Recent Activity</h2>
                 <div class="space-y-4">
                     <div class="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-xl transition">
@@ -388,6 +388,133 @@
             </div>
         </div>
     </main>
+
+    <!-- Profile Section Modal -->
+    <div id="profile-section" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center">
+        <div class="bg-white rounded-2xl max-w-lg w-full mx-4 p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-[#0f172a]">My Profile</h2>
+                <button onclick="closeModal('profile-section')" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+            </div>
+            <div class="text-center mb-6">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" class="w-24 h-24 rounded-full object-cover mx-auto border-4 border-sky-500 mb-4">
+                <h3 class="text-xl font-bold text-[#0f172a]">Ayesha Fatima</h3>
+                <p class="text-gray-400 text-sm">Premium Member since 2024</p>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                    <i class="fas fa-envelope text-sky-500 w-5"></i>
+                    <span class="text-gray-600">ayesha.fatima@email.com</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                    <i class="fas fa-phone text-sky-500 w-5"></i>
+                    <span class="text-gray-600">+92 321 1234567</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                    <i class="fas fa-map-marker-alt text-sky-500 w-5"></i>
+                    <span class="text-gray-600">Lahore, Pakistan</span>
+                </div>
+            </div>
+            <button class="w-full mt-6 py-3 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-600 transition">Edit Profile</button>
+        </div>
+    </div>
+
+    <!-- Settings Section Modal -->
+    <div id="settings-section" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center">
+        <div class="bg-white rounded-2xl max-w-lg w-full mx-4 p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-[#0f172a]">Settings</h2>
+                <button onclick="closeModal('settings-section')" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-bell text-sky-500"></i>
+                        <span class="font-medium text-[#0f172a]">Notifications</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-500"></div>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-sky-500"></i>
+                        <span class="font-medium text-[#0f172a]">Email Alerts</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-500"></div>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-moon text-sky-500"></i>
+                        <span class="font-medium text-[#0f172a]">Dark Mode</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-500"></div>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-lock text-sky-500"></i>
+                        <span class="font-medium text-[#0f172a]">Two-Factor Auth</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-500"></div>
+                    </label>
+                </div>
+            </div>
+            <button class="w-full mt-6 py-3 bg-sky-500 text-white font-bold rounded-xl hover:bg-sky-600 transition">Save Settings</button>
+        </div>
+    </div>
+
+    <script>
+        // Navigate to section
+        function navigateTo(sectionId) {
+            // Remove active class from all sidebar links
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.classList.remove('active', 'bg-sky-500', 'text-white');
+                link.classList.add('text-gray-400');
+            });
+
+            // Add active class to clicked link
+            event.currentTarget.classList.add('active', 'bg-sky-500', 'text-white');
+            event.currentTarget.classList.remove('text-gray-400');
+
+            // Check if it's a modal section
+            if (sectionId === 'profile-section' || sectionId === 'settings-section') {
+                const modal = document.getElementById(sectionId);
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                // Scroll to section
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        // Close modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('#profile-section, #settings-section').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+    </script>
 
 </body>
 
