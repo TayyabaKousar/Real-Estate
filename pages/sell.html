@@ -169,8 +169,63 @@
                     </form>
                 </div>
             </div>
+    </section>
+
+    <!-- 5. PROPERTY LISTING FORM -->
+    <section class="py-24 px-6 lg:px-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-[900] text-[#1e293b] tracking-tighter uppercase">
+                    List Your <span class="text-sky-500">Property</span>
+                </h2>
+                <div class="w-24 h-1.5 bg-sky-500 mx-auto mt-6 rounded-full"></div>
+                <p class="text-gray-600 mt-4">Fill in the details below to create your property listing card.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Form -->
+                <div class="bg-white p-10 rounded-[3.5rem] shadow-xl">
+                    <h3 class="text-2xl font-black mb-6 text-[#1e293b] uppercase">Property Details</h3>
+                    <form id="propertyForm" class="space-y-6">
+                        <input type="text" id="title" placeholder="Property Title" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 px-6 text-sm outline-none focus:border-sky-500 transition-all" required>
+                        <textarea id="description" placeholder="Description" rows="4" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 px-6 text-sm outline-none focus:border-sky-500 transition-all" required></textarea>
+                        <input type="number" id="price" placeholder="Price (PKR)" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 px-6 text-sm outline-none focus:border-sky-500 transition-all" required>
+                        <input type="text" id="location" placeholder="Location" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 px-6 text-sm outline-none focus:border-sky-500 transition-all" required>
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="number" id="bedrooms" placeholder="Bedrooms" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 px-6 text-sm outline-none focus:border-sky-500 transition-all" required>
+                            <input type="number" id="bathrooms" placeholder="Bathrooms" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 px-6 text-sm outline-none focus:border-sky-500 transition-all" required>
+                        </div>
+                        <input type="number" id="area" placeholder="Area (sq ft)" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 px-6 text-sm outline-none focus:border-sky-500 transition-all" required>
+                        <input type="file" id="image" accept="image/*" class="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 px-6 text-sm outline-none focus:border-sky-500 transition-all" required>
+                        <button type="submit" class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-black rounded-2xl transition-all shadow-xl uppercase tracking-widest text-sm">
+                            Create Property Card
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Property Cards Display -->
+                <div id="propertyCards" class="space-y-6">
+                    <h3 class="text-2xl font-black text-[#1e293b] uppercase">Your Listings</h3>
+                    <!-- Example Cards -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=400" alt="Luxury Villa" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h4 class="text-xl font-bold text-[#1e293b]">Luxury Villa in Lahore</h4>
+                        <p class="text-gray-600 text-sm mb-2">Spacious 5-bedroom villa with modern amenities.</p>
+                        <p class="text-sky-500 font-bold">PKR 2,50,00,000</p>
+                        <p class="text-gray-500 text-xs">Lahore, Punjab | 5 Beds | 4 Baths | 3000 sq ft</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=400" alt="Modern Apartment" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h4 class="text-xl font-bold text-[#1e293b]">Modern Apartment in Karachi</h4>
+                        <p class="text-gray-600 text-sm mb-2">Stylish 3-bedroom apartment with city views.</p>
+                        <p class="text-sky-500 font-bold">PKR 1,20,00,000</p>
+                        <p class="text-gray-500 text-xs">Karachi, Sindh | 3 Beds | 2 Baths | 1500 sq ft</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
 <!-- Shared footer will be injected here -->
 <div id="site-footer"></div>
     <script>
@@ -179,6 +234,47 @@
             const path = 'footer.html';
             fetch(path).then(r => r.text()).then(html => { container.innerHTML = html; }).catch(() => { container.innerHTML = '<p class="text-red-500 p-6">Footer failed to load.</p>'; });
         })();
+
+        // Property Form Handler
+        document.getElementById('propertyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const price = document.getElementById('price').value;
+            const location = document.getElementById('location').value;
+            const bedrooms = document.getElementById('bedrooms').value;
+            const bathrooms = document.getElementById('bathrooms').value;
+            const area = document.getElementById('area').value;
+            const imageFile = document.getElementById('image').files[0];
+            
+            if (imageFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageSrc = e.target.result;
+                    createPropertyCard(title, description, price, location, bedrooms, bathrooms, area, imageSrc);
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                createPropertyCard(title, description, price, location, bedrooms, bathrooms, area, '');
+            }
+            
+            // Reset form
+            this.reset();
+        });
+
+        function createPropertyCard(title, description, price, location, bedrooms, bathrooms, area, imageSrc) {
+            const cardHTML = `
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    ${imageSrc ? `<img src="${imageSrc}" alt="${title}" class="w-full h-48 object-cover rounded-xl mb-4">` : ''}
+                    <h4 class="text-xl font-bold text-[#1e293b]">${title}</h4>
+                    <p class="text-gray-600 text-sm mb-2">${description}</p>
+                    <p class="text-sky-500 font-bold">PKR ${parseInt(price).toLocaleString()}</p>
+                    <p class="text-gray-500 text-xs">${location} | ${bedrooms} Beds | ${bathrooms} Baths | ${area} sq ft</p>
+                </div>
+            `;
+            document.getElementById('propertyCards').insertAdjacentHTML('afterbegin', cardHTML);
+        }
     </script>
 
 </body>
