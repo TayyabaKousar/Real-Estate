@@ -102,6 +102,17 @@
                 </div>
             </div>
             <div class="lg:hidden text-white text-2xl"><i class="fas fa-bars"></i></div>
+             <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-black/95 flex-col items-center justify-center space-y-8 text-xl text-white font-medium lg:hidden z-40 transition-all duration-300">
+        <a href="pages/buy.html" class="hover:text-sky-400">Buy</a>
+        <a href="pages/sell.html" class="hover:text-sky-400">Sell</a>
+        <a href="pages/rent.html" class="hover:text-sky-400">Rent</a>
+        <a href="pages/contactus.html" class="hover:text-sky-400">Contact Us</a>
+        <div class="flex flex-col gap-4 mt-4 w-3/4 text-center">
+            <a href="pages/login.html" class="block border border-gray-600 py-3 rounded-xl">Login</a>
+            <a href="pages/signup.html" class="block bg-sky-500 py-3 rounded-xl">Signup</a>
+        </div>
+    </div>
         </nav>
 
         <!-- Hero Content -->
@@ -376,15 +387,16 @@
             </div>
             
             <!-- Quick Options (Updated with Sell Tag) -->
-<div class="flex flex-wrap gap-2 pt-2">
-    <button class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Buy Property</button>
+<div id="quickOptions" class="flex flex-wrap gap-2 pt-2">
+    <button onclick="quickMessage('Buy Property')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Buy Property</button>
     
     <!-- Naya Sell Button -->
-    <button class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Sell Property</button>
+    <button onclick="quickMessage('Sell Property')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Sell Property</button>
     
-    <button class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Rent a Home</button>
-    <button class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Contact Agent</button>
+    <button onclick="quickMessage('Rent a Home')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Rent a Home</button>
+    <button onclick="quickMessage('Contact Agent')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Contact Agent</button>
 </div>
+        </div>
 
         <!-- Chat Footer (Input Area) -->
         <div class="p-4 bg-white border-t border-gray-50 flex items-center gap-3">
@@ -408,7 +420,6 @@
     // Toggle Chat Window
     function toggleChat() {
         chatBox.classList.toggle('hidden');
-        // Animation class (optional)
         if (!chatBox.classList.contains('hidden')) {
             chatBox.classList.add('animate-slide-up');
         }
@@ -416,10 +427,250 @@
 
     chatToggle.addEventListener('click', toggleChat);
 
-    // Simple Message Sending Logic (Simulated)
+    // Quick Message Function
+    function quickMessage(text) {
+        userInput.value = text;
+        sendMessage();
+    }
+
+    // Get Current Time
+    function getCurrentTime() {
+        const now = new Date();
+        return now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    }
+
+    // Smart Bot Response Based on Keywords
+    function getBotResponse(message) {
+        const msg = message.toLowerCase();
+        
+        // Buy Property
+        if (msg.includes('buy') || msg.includes('purchase') || msg.includes('khareed')) {
+            return `🏠 Great choice! We have amazing properties for sale in Lahore, Islamabad, and Karachi!
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="quickMessage('Show me villas')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Villas</button>
+    <button onclick="quickMessage('Show me apartments')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Apartments</button>
+    <button onclick="quickMessage('Budget under 1 crore')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Under 1 Cr</button>
+</div>`;
+        }
+        
+        // Sell Property
+        if (msg.includes('sell') || msg.includes('bech')) {
+            return `💰 Want to sell your property? We'll help you get the best price!
+
+Our services include:
+• Free property valuation
+• Professional photography
+• Marketing on 50+ platforms
+• Dedicated agent support
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="quickMessage('Free valuation')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Get Free Valuation</button>
+    <button onclick="window.location.href='pages/sell.html'" class="text-[10px] font-bold text-white bg-sky-500 px-3 py-1.5 rounded-full hover:bg-sky-600 transition-all">List Property</button>
+</div>`;
+        }
+        
+        // Rent
+        if (msg.includes('rent') || msg.includes('kiraya') || msg.includes('lease')) {
+            return `🏡 Looking for rental properties? We have great options!
+
+Popular areas:
+• DHA Lahore - PKR 50K-2L/month
+• Bahria Town - PKR 40K-1.5L/month
+• Gulberg - PKR 60K-3L/month
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="window.location.href='pages/rent.html'" class="text-[10px] font-bold text-white bg-sky-500 px-3 py-1.5 rounded-full hover:bg-sky-600 transition-all">Browse Rentals</button>
+    <button onclick="quickMessage('2 bedroom apartments')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">2 BHK</button>
+</div>`;
+        }
+        
+        // Contact Agent
+        if (msg.includes('contact') || msg.includes('agent') || msg.includes('call') || msg.includes('number')) {
+            return `📞 Our team is ready to help you!
+
+<strong>Contact Details:</strong>
+• Phone: +92 300 1234567
+• WhatsApp: +92 321 9876543
+• Email: info@dreamhome.pk
+• Office: DHA Phase 5, Lahore
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="window.location.href='pages/contactus.html'" class="text-[10px] font-bold text-white bg-sky-500 px-3 py-1.5 rounded-full hover:bg-sky-600 transition-all">Contact Form</button>
+    <button onclick="window.open('https://wa.me/923001234567')" class="text-[10px] font-bold text-green-600 bg-green-50 border border-green-100 px-3 py-1.5 rounded-full hover:bg-green-500 hover:text-white transition-all">WhatsApp</button>
+</div>`;
+        }
+        
+        // Villas
+        if (msg.includes('villa') || msg.includes('bungalow')) {
+            return `🏰 Our Premium Villas:
+
+1. <strong>DHA Luxury Villa</strong> - PKR 8.5 Crore
+   5 Beds, 6 Baths, 1 Kanal
+   
+2. <strong>Bahria Paradise Villa</strong> - PKR 6.2 Crore
+   4 Beds, 5 Baths, 10 Marla
+
+3. <strong>F-7 Executive Home</strong> - PKR 15 Crore
+   6 Beds, 7 Baths, 2 Kanal
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="window.location.href='pages/buy.html'" class="text-[10px] font-bold text-white bg-sky-500 px-3 py-1.5 rounded-full hover:bg-sky-600 transition-all">View All Villas</button>
+    <button onclick="quickMessage('Schedule visit')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Schedule Visit</button>
+</div>`;
+        }
+        
+        // Apartments
+        if (msg.includes('apartment') || msg.includes('flat')) {
+            return `🏢 Modern Apartments Available:
+
+1. <strong>Gulberg Heights</strong> - PKR 2.5 Crore
+   3 Beds, 2000 sq ft
+   
+2. <strong>DHA Skyline</strong> - PKR 1.8 Crore
+   2 Beds, 1400 sq ft
+
+3. <strong>Bahria Icon Tower</strong> - PKR 3.2 Crore
+   4 Beds, 2800 sq ft
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="window.location.href='pages/buy.html'" class="text-[10px] font-bold text-white bg-sky-500 px-3 py-1.5 rounded-full hover:bg-sky-600 transition-all">View Apartments</button>
+</div>`;
+        }
+        
+        // Budget
+        if (msg.includes('budget') || msg.includes('crore') || msg.includes('lakh') || msg.includes('price')) {
+            return `💵 Properties by Budget:
+
+• <strong>Under 50 Lakh:</strong> 2-3 bed apartments
+• <strong>50L - 1 Crore:</strong> 3 bed apartments, small houses
+• <strong>1 - 3 Crore:</strong> Houses, luxury apartments
+• <strong>3 - 5 Crore:</strong> Villas, premium houses
+• <strong>5+ Crore:</strong> Luxury villas, farmhouses
+
+What's your budget range?
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="quickMessage('Under 1 crore properties')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Under 1 Cr</button>
+    <button onclick="quickMessage('1-3 crore properties')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">1-3 Cr</button>
+    <button onclick="quickMessage('Premium 5+ crore')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">5+ Cr</button>
+</div>`;
+        }
+        
+        // Schedule Visit
+        if (msg.includes('visit') || msg.includes('schedule') || msg.includes('appointment') || msg.includes('viewing')) {
+            return `📅 Schedule a Property Visit!
+
+Please share your preferred:
+• Date and Time
+• Property you want to see
+• Your contact number
+
+Our agent will confirm within 30 minutes!
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="window.location.href='pages/contactus.html'" class="text-[10px] font-bold text-white bg-sky-500 px-3 py-1.5 rounded-full hover:bg-sky-600 transition-all">Book Now</button>
+</div>`;
+        }
+        
+        // Valuation
+        if (msg.includes('valuation') || msg.includes('value') || msg.includes('worth') || msg.includes('estimate')) {
+            return `📊 Free Property Valuation!
+
+Get your property valued by our experts:
+• Accurate market analysis
+• Comparison with recent sales
+• Report within 24 hours
+
+Share your property details:
+• Location
+• Size (Marla/Kanal)
+• Type (House/Apartment/Plot)
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="quickMessage('My property is in DHA Lahore')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">DHA Lahore</button>
+    <button onclick="quickMessage('My property is in Bahria Town')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Bahria Town</button>
+</div>`;
+        }
+        
+        // Location - DHA
+        if (msg.includes('dha')) {
+            return `📍 DHA Properties:
+
+<strong>DHA Lahore:</strong>
+• Phase 5: PKR 4-8 Cr (Houses)
+• Phase 6: PKR 5-10 Cr (Houses)
+• EME Society: PKR 3-6 Cr
+
+<strong>DHA Karachi:</strong>
+• Phase 6: PKR 6-15 Cr
+• Phase 8: PKR 4-8 Cr
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="window.location.href='pages/buy.html'" class="text-[10px] font-bold text-white bg-sky-500 px-3 py-1.5 rounded-full hover:bg-sky-600 transition-all">Browse DHA</button>
+</div>`;
+        }
+        
+        // Location - Bahria
+        if (msg.includes('bahria')) {
+            return `📍 Bahria Town Properties:
+
+<strong>Bahria Town Lahore:</strong>
+• Sector E: PKR 2-5 Cr
+• Overseas Block: PKR 3-7 Cr
+
+<strong>Bahria Town Karachi:</strong>
+• Precinct 1: PKR 1.5-4 Cr
+• Bahria Paradise: PKR 4-10 Cr
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="window.location.href='pages/buy.html'" class="text-[10px] font-bold text-white bg-sky-500 px-3 py-1.5 rounded-full hover:bg-sky-600 transition-all">Browse Bahria</button>
+</div>`;
+        }
+        
+        // Greeting
+        if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey') || msg.includes('salam') || msg.includes('assalam')) {
+            return `👋 Walaikum Assalam! Welcome to DreamHome!
+
+I'm your property assistant. How can I help you today?
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="quickMessage('Buy Property')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Buy</button>
+    <button onclick="quickMessage('Sell Property')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Sell</button>
+    <button onclick="quickMessage('Rent a Home')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Rent</button>
+</div>`;
+        }
+        
+        // Thanks
+        if (msg.includes('thank') || msg.includes('shukriya') || msg.includes('thanks')) {
+            return `😊 You're welcome! It was my pleasure helping you.
+
+Is there anything else I can assist you with?
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="quickMessage('Contact Agent')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Talk to Agent</button>
+    <button onclick="quickMessage('Show more properties')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">More Properties</button>
+</div>`;
+        }
+        
+        // Default Response
+        return `I understand you're asking about "${message}". 
+
+Let me connect you with our expert team who can better assist you!
+
+<div class="flex flex-wrap gap-2 mt-3">
+    <button onclick="quickMessage('Contact Agent')" class="text-[10px] font-bold text-white bg-sky-500 px-3 py-1.5 rounded-full hover:bg-sky-600 transition-all">Talk to Agent</button>
+    <button onclick="quickMessage('Buy Property')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Buy</button>
+    <button onclick="quickMessage('Rent a Home')" class="text-[10px] font-bold text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full hover:bg-sky-500 hover:text-white transition-all">Rent</button>
+</div>`;
+    }
+
+    // Send Message Function
     function sendMessage() {
         const text = userInput.value.trim();
         if (text === "") return;
+
+        const time = getCurrentTime();
 
         // User Message HTML
         const userHtml = `
@@ -427,7 +678,7 @@
                 <div class="bg-sky-500 p-3 rounded-2xl rounded-tr-none text-white text-[13px] leading-relaxed shadow-md">
                     ${text}
                 </div>
-                <span class="text-[9px] text-gray-400 mt-1 mr-1 text-right">You · Just now</span>
+                <span class="text-[9px] text-gray-400 mt-1 mr-1 text-right">You · ${time}</span>
             </div>
         `;
 
@@ -437,19 +688,38 @@
         // Scroll to bottom
         chatBody.scrollTop = chatBody.scrollHeight;
 
-        // Simulated Bot Response
+        // Typing indicator
+        const typingHtml = `
+            <div id="typingIndicator" class="flex flex-col items-start max-w-[85%]">
+                <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 text-[13px] text-gray-400">
+                    <div class="flex gap-1">
+                        <span class="w-2 h-2 bg-gray-300 rounded-full animate-bounce" style="animation-delay: 0ms"></span>
+                        <span class="w-2 h-2 bg-gray-300 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
+                        <span class="w-2 h-2 bg-gray-300 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
+                    </div>
+                </div>
+            </div>
+        `;
+        chatBody.insertAdjacentHTML('beforeend', typingHtml);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Smart Bot Response
         setTimeout(() => {
+            // Remove typing indicator
+            document.getElementById('typingIndicator')?.remove();
+            
+            const botResponse = getBotResponse(text);
             const botHtml = `
                 <div class="flex flex-col items-start max-w-[85%]">
                     <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 text-[13px] text-gray-700 leading-relaxed">
-                        Got it! Our agent will connect with you shortly about "${text}".
+                        ${botResponse}
                     </div>
-                    <span class="text-[9px] text-gray-400 mt-1 ml-1">Assistant · Just now</span>
+                    <span class="text-[9px] text-gray-400 mt-1 ml-1">Assistant · ${getCurrentTime()}</span>
                 </div>
             `;
             chatBody.insertAdjacentHTML('beforeend', botHtml);
             chatBody.scrollTop = chatBody.scrollHeight;
-        }, 1000);
+        }, 1200);
     }
 
     sendMsg.addEventListener('click', sendMessage);
